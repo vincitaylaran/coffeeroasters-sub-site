@@ -12,3 +12,10 @@ $font-weights: (
   medium: 500,
   bold: 700,
 );
+
+$breakpoints: (
+  mobile: 480px,
+  tablet: 768px,
+  laptop: 1024px,
+  desktop: 1400px,
+);

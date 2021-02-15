@@ -1,0 +1,28 @@
+@import "mixins";
+@import "functions";
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  // Should be using this.
+  @media (max-width: breakpoint(mobile)) {
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: breakpoint(tablet)) {
+    padding: 0 2.5rem;
+  }
+  @media (max-width: breakpoint(laptop)) {
+    padding: 0 3.5rem;
+  }
+
+  // Instead uses this regardless of the viewport width. Why?
+  @media (max-width: breakpoint(desktop)) {
+    padding: 0 5rem;
+  }
+
+  .logo {
+    width: 10rem;
+  }
+}
