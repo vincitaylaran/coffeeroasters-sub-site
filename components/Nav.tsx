@@ -36,6 +36,7 @@ const Nav = () => {
       </div>
       <div>
         <Image
+          className={navStyles.hamburger}
           onClick={onHamburgerMenu}
           src={hamburgerMenuIcon.path}
           alt="Close hamburger menu"
