@@ -34,9 +34,8 @@ const Nav = () => {
           height="64"
         />
       </div>
-      <div>
+      <div className={navStyles.hamburger}>
         <Image
-          className={navStyles.hamburger}
           onClick={onHamburgerMenu}
           src={hamburgerMenuIcon.path}
           alt="Close hamburger menu"

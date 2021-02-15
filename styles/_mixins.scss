@@ -1,15 +1,16 @@
-// For the body element
+// Include this mixin for each section in your homepage.
 @mixin responsive-padding {
-  @media (max-width: breakpoint(mobile)) {
-    padding: 0 1.5rem;
-  }
+  padding: 2rem 1.5rem 2.5rem;
+
   @media (min-width: breakpoint(tablet)) {
-    padding: 0 2.5rem;
+    padding: 2.5rem 2.5rem 2.55rem;
   }
+
   @media (min-width: breakpoint(laptop)) {
-    padding: 0 3.5rem;
+    padding: 2.6rem 3.5rem 2.65rem;
   }
+
   @media (min-width: breakpoint(desktop)) {
-    padding: 0 5rem;
+    padding: 2.723rem 5rem 2.9rem;
   }
 }
