@@ -1,9 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Fraunces:wght@300;400;500;700&display=swap");
+
+@import "variables";
+@import "functions";
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  background: color(light-cream);
+  font-family: Barlow;
+  font-weight: font-weight(regular);
+  font-size: 1rem;
+}
+
+nav {
+  .link {
+    font-weight: font-weight(bold);
+  }
+}
+
+button {
+  background: color(dark-cyan);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  width: 217px;
+  height: 56px;
+
+  &:hover {
+    $button-hover-color: #66d2cf;
+    background: $button-hover-color;
+  }
+
+  &:disabled {
+    $button-disabled-color: #e2dedb;
+    background: $button-disabled-color;
+  }
 }
 
 a {
@@ -13,4 +50,11 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Fraunces;
 }
