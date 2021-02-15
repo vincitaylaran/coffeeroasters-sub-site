@@ -1,15 +1,15 @@
 // For the body element
-@mixin body-padding {
+@mixin responsive-padding {
   @media (max-width: breakpoint(mobile)) {
     padding: 0 1.5rem;
   }
-  @media (max-width: breakpoint(tablet)) {
+  @media (min-width: breakpoint(tablet)) {
     padding: 0 2.5rem;
   }
-  @media (max-width: breakpoint(laptop)) {
+  @media (min-width: breakpoint(laptop)) {
     padding: 0 3.5rem;
   }
-  @media (max-width: breakpoint(desktop)) {
+  @media (min-width: breakpoint(desktop)) {
     padding: 0 5rem;
   }
 }
