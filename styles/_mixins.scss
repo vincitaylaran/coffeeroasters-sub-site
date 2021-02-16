@@ -14,3 +14,13 @@
     padding: 2.723rem 5rem 2.9rem;
   }
 }
+
+@mixin background($path) {
+  background: url($path);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// @mixin rem($pixels) {
+//   font-size: $pixels / 1rem;
+// }

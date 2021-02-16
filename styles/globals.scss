@@ -33,11 +33,12 @@ button {
   width: 217px;
   height: 56px;
   color: white;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-family: Fraunces, sans-serif;
   font-weight: font-weight(bold);
   line-height: 25px;
   text-align: center;
+  cursor: pointer;
 
   &:hover {
     $button-hover-color: #66d2cf;
@@ -67,19 +68,19 @@ h4 {
 }
 
 h1 {
-  font-size: 72px;
+  font-size: 4.5rem;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 p {
