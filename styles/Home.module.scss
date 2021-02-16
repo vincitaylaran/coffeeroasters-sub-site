@@ -1,14 +1,30 @@
 @import "functions";
+@import "mixins";
 
 #home {
-  .container {
+  .hero {
     border-radius: 10px;
-    background: url("../public/assets/home/mobile/image-hero-coffeepress.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    @include background(
+      "../public/assets/home/mobile/image-hero-coffeepress.jpg"
+    );
     background-color: #a2a2a2;
-    height: 600px;
-    padding: 100px 24px;
+    height: 500px;
+    padding: 50px 24px;
+
+    @media (min-width: breakpoint(tablet)) {
+      @include background(
+        "../public/assets/home/tablet/image-hero-coffeepress.jpg"
+      );
+      height: 500px;
+      padding: 50px 170px 104px 58px;
+    }
+
+    @media (min-width: breakpoint(desktop)) {
+      @include background(
+        "../public/assets/home/desktop/image-hero-coffeepress.jpg"
+      );
+      height: 600px;
+    }
 
     .content {
       color: white;
@@ -17,6 +33,42 @@
         opacity: 0.8;
         margin-bottom: 39px;
       }
+
+      @media (min-width: breakpoint(tablet)) {
+        h2 {
+          font-size: map-get($heading-sizes, h2) + 0.5rem;
+        }
+        text-align: start;
+        padding-right: 10px;
+      }
+
+      @media (min-width: breakpoint(desktop)) {
+        h2 {
+          font-size: map-get($heading-sizes, h1);
+          margin-bottom: 24px;
+          margin-top: 50px;
+        }
+        margin-right: 500px;
+      }
+    }
+  }
+
+  .ourCollection {
+    .sectionHeading {
+      h2 {
+        background: linear-gradient(
+          180deg,
+          rgba(172, 150, 150, 0.999),
+          #fefcf7
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+      }
+    }
+    .container {
     }
   }
 }

@@ -4,12 +4,12 @@ import homeStyles from "../styles/Home.module.scss"
 
 export default function Home() {
   return (
-    <section id={homeStyles.home}>
+    <div id={homeStyles.home}>
       <Head>
         <title>Coffee Roasters</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={homeStyles.container}>
+      <section className={homeStyles.hero}>
         <div className={homeStyles.content}>
           <h2>Great coffee made simple.</h2>
           <p>
@@ -19,7 +19,14 @@ export default function Home() {
           </p>
           <button>Create your plan</button>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className={homeStyles.ourCollection}>
+        <div className={homeStyles.sectionHeading}>
+          <h2>our collection</h2>
+        </div>
+        <div className={homeStyles.container}></div>
+      </section>
+    </div>
   )
 }
