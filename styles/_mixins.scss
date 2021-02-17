@@ -21,6 +21,25 @@
   background-repeat: no-repeat;
 }
 
-// @mixin rem($pixels) {
-//   font-size: $pixels / 1rem;
-// }
+@mixin flex($direction) {
+  display: flex;
+  @if $direction {
+    flex-direction: $direction;
+  }
+}
+
+@mixin between-breakpoints($min, $max) {
+  /**
+   Example usage:
+    @import "functions";
+
+   @include between-breakpoints(breakpoint(tablet), breakpoint(laptop)) {
+     // your styles...
+   }  
+  
+  */
+
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
