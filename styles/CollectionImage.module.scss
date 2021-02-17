@@ -1,15 +1,29 @@
 @import "functions";
+@import "mixins";
 
 .coffee {
-  display: flex;
+  @include flex($direction: column);
   align-items: center;
-  flex-direction: column;
   text-align: center;
   margin-bottom: 48px;
+  // background: red;
 
-  @media (min-width: breakpoint(tablet)) and (max-width: breakpoint(laptop)) {
+  @include between-breakpoints(breakpoint(tablet), breakpoint(laptop)) {
     flex-direction: row;
     text-align: start;
+    padding-left: 40px;
+
+    .coffeeInfo {
+      margin-left: 50px;
+    }
+  }
+
+  @media (min-width: breakpoint(desktop)) {
+    margin-right: 25px;
+
+    img {
+      margin-bottom: 71px;
+    }
   }
 
   img {
@@ -21,12 +35,6 @@
     h4 {
       margin: 0;
       font-weight: font-weight(extra-bold);
-    }
-
-    @media (min-width: breakpoint(tablet)) and (max-width: breakpoint(laptop)) {
-      p {
-        width: 70%;
-      }
     }
   }
 }

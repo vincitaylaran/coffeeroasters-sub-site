@@ -54,6 +54,9 @@
   }
 
   .ourCollection {
+    @include flex($direction: column);
+    align-items: center;
+
     .sectionHeading {
       h2 {
         text-align: center;
@@ -78,13 +81,19 @@
       }
     }
     .container {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
+      // background: blue;
+
+      @include flex($direction: column);
       z-index: 1;
+      width: 100%;
+
+      @include between-breakpoints(breakpoint(tablet), breakpoint(laptop)) {
+        margin-top: -130px;
+      }
 
       @media (min-width: breakpoint(desktop)) {
         flex-direction: row;
+        margin-top: -220px;
       }
     }
   }
