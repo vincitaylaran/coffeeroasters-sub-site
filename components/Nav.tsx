@@ -31,8 +31,21 @@ const Nav = () => {
           src="/assets/shared/desktop/logo.svg"
           alt="Coffee Roasters logo"
           width="500"
-          height="64"
+          height="54"
         />
+      </div>
+      <div className={navStyles.links}>
+        <ul>
+          <li>
+            <a href="#">HOME</a>
+          </li>
+          <li>
+            <a href="#">ABOUT US</a>
+          </li>
+          <li>
+            <a href="#">CREATE YOUR PLAN</a>
+          </li>
+        </ul>
       </div>
       <div className={navStyles.hamburger}>
         <Image

@@ -30,13 +30,12 @@
 
 @mixin between-breakpoints($min, $max) {
   /**
-   Example usage:
+   // This example shows how to create a breakpoint between tablet width and laptop.
     @import "functions";
 
    @include between-breakpoints(breakpoint(tablet), breakpoint(laptop)) {
      // your styles...
    }  
-  
   */
 
   @media (min-width: $min) and (max-width: $max) {

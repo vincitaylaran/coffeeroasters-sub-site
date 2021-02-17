@@ -5,6 +5,35 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+  align-items: center;
+
+  .links {
+    @media (max-width: breakpoint(mobile)) {
+      display: none;
+    }
+
+    width: 283px;
+
+    ul {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      justify-content: space-between;
+      li {
+        list-style-type: none;
+
+        a {
+          font-size: 0.75rem;
+          font-weight: font-weight(bold);
+          color: color(grey);
+          letter-spacing: 0.8px;
+          &:hover {
+            color: color(dark-grey-blue);
+          }
+        }
+      }
+    }
+  }
 
   .hamburger {
     cursor: pointer;
@@ -15,6 +44,9 @@
   }
 
   .logo {
-    width: 10rem;
+    width: 236px;
+    height: 26px;
+    display: flex;
+    align-content: center;
   }
 }
