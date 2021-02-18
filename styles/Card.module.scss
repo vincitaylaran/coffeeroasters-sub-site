@@ -1,0 +1,35 @@
+@import "functions";
+@import "mixins";
+
+.card {
+  @include flex($direction: column);
+  background: color(dark-cyan);
+  border-radius: 10px;
+  color: color(light-cream);
+  padding: 72px 33.5px 24px;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    margin-bottom: 67px;
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  @include between-breakpoints(breakpoint(tablet), breakpoint(desktop)) {
+    flex-direction: row;
+    text-align: start;
+    padding: 41px 48px 31px;
+    .icon {
+      margin-right: 55px;
+    }
+  }
+
+  @media (min-width: breakpoint(desktop)) {
+    padding-left: 72px;
+    padding-right: 72px;
+    padding-bottom: 0;
+  }
+}
