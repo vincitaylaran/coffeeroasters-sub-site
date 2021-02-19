@@ -83,6 +83,8 @@
         }
       }
     }
+
+    // TODO: refactor to use grid mixin
     .container {
       // background: blue;
 
@@ -108,7 +110,6 @@
     margin: 0;
     color: color(light-cream);
     text-align: center;
-    z-index: -1;
     padding: 64px 24px 0;
     @include section-margin-bottom;
 
@@ -138,14 +139,25 @@
     }
 
     .cards {
-      display: grid;
-      gap: 24px;
+      @include grid($gap: 24px);
 
       // Cards have their own file. Go to Card.module.scss.
 
       @media (min-width: breakpoint(laptop)) {
         grid-auto-flow: column;
       }
+    }
+  }
+
+  .howItWorks {
+    text-align: center;
+    .sectionTitle {
+    }
+
+    .drawing {
+    }
+
+    .grid {
     }
   }
 }

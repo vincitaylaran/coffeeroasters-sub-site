@@ -79,6 +79,12 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <section className={homeStyles.howItWorks}>
+        <h3 className={homeStyles.sectionTitle}>How it works</h3>
+        <div></div>
+        <div></div>
+      </section>
     </div>
   )
 }

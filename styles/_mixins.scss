@@ -52,3 +52,11 @@
     margin-bottom: 200.45px;
   }
 }
+
+@mixin grid($gap) {
+  display: grid;
+  @if $gap {
+    gap: $gap;
+  }
+  @content;
+}
