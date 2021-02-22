@@ -33,6 +33,10 @@
       p {
         opacity: 0.8;
         margin-bottom: 39px;
+
+        @media (min-width: breakpoint(desktop)) {
+          margin-bottom: 56px;
+        }
       }
 
       @media (min-width: breakpoint(tablet)) {
@@ -117,8 +121,13 @@
       height: 573px;
     }
 
+    @media (min-width: breakpoint(desktop)) {
+      @include section-left-right-padding(breakpoint(desktop));
+    }
+
     .sectionTitle {
       font-size: 1.75rem;
+      margin: 0 0 30px;
 
       @media (min-width: breakpoint(desktop)) {
         font-size: 3rem;
@@ -133,31 +142,78 @@
 
       @media (min-width: breakpoint(desktop)) {
         margin-bottom: 66px;
-        padding-left: 351px;
-        padding-right: 351px;
+        padding-left: 275px;
+        padding-right: 275px;
       }
     }
 
     .cards {
-      @include grid($gap: 24px);
+      @include grid($gap: 24px) {
+        @media (min-width: breakpoint(laptop)) {
+          grid-auto-flow: column;
+        }
+      }
 
       // Cards have their own file. Go to Card.module.scss.
-
-      @media (min-width: breakpoint(laptop)) {
-        grid-auto-flow: column;
-      }
     }
   }
 
   .howItWorks {
     text-align: center;
-    .sectionTitle {
+    padding-top: 600px;
+    margin-bottom: 120px;
+
+    // TODO: Refactor or remove these media queries! The reason for these media queries is because, without them, this section
+    // will overlap with the grid of the "Why choose us?" section above.
+    @media (min-width: breakpoint(tablet)) {
+      text-align: start;
+      padding-top: 350px;
+      margin-bottom: 144px;
+    }
+    @media (min-width: breakpoint(desktop)) {
+      padding-top: 75px;
+      margin-bottom: 200px;
+      @include section-left-right-padding(breakpoint(desktop));
     }
 
-    .drawing {
+    .sectionTitle {
+      color: color(dark-cyan);
+      @media (max-width: breakpoint(mobile)) {
+        margin-bottom: 80px;
+      }
     }
+
+    // See Drawing.module.scss for the Drawing component styles.
 
     .grid {
+      margin-bottom: 69px;
+
+      @include grid($gap: 56px) {
+        @media (min-width: breakpoint(tablet)) {
+          grid-auto-flow: column;
+          gap: 20px;
+        }
+        @media (min-width: breakpoint(desktop)) {
+          gap: 90px;
+        }
+      }
+
+      .cell {
+        @media (min-width: breakpoint(tablet)) {
+          .circle {
+            border-radius: 50%;
+            width: 31px;
+            height: 31px;
+            background: inherit;
+            border: 2px solid color(dark-cyan);
+          }
+        }
+
+        h1 {
+          color: color(pale-orange);
+          margin: 0;
+        }
+      }
     }
   }
 }
