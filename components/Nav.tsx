@@ -26,6 +26,7 @@ const Nav = () => {
   // The file path for an Image component must be relative to the public directory. Check NextJS docs.
   return (
     <nav className={navStyles.nav}>
+      {/* TODO: Replace this with the <Logo /> component */}
       <div className={navStyles.logo}>
         <Image
           src="/assets/shared/desktop/logo.svg"

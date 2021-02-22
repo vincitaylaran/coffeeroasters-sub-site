@@ -22,8 +22,12 @@ $breakpoints: (
 );
 
 $heading-sizes: (
+  // if browser font size is 16 px, then 4.5 rem = 72px
   h1: 4.5rem,
+  // 40px
   h2: 2.5rem,
+  // 32px
   h3: 2rem,
-  h4: 1.5rem,
+  // 24px
+  h4: 1.5rem
 );

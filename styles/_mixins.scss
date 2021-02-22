@@ -21,11 +21,13 @@
   background-repeat: no-repeat;
 }
 
-@mixin flex($direction) {
+@mixin flex($direction: row) {
   display: flex;
   @if $direction {
     flex-direction: $direction;
   }
+
+  @content;
 }
 
 @mixin between-breakpoints($min, $max) {
@@ -53,10 +55,21 @@
   }
 }
 
-@mixin grid($gap) {
+@mixin grid($gap: 10px) {
   display: grid;
   @if $gap {
     gap: $gap;
   }
+
   @content;
+}
+
+@mixin section-left-right-padding($breakpoint) {
+  @if $breakpoint <= breakpoint(tablet) {
+    padding-left: 24px;
+    padding-right: 24px;
+  } @else {
+    padding-left: 84px;
+    padding-right: 84px;
+  }
 }
