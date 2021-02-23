@@ -14,7 +14,7 @@ interface ILinks {
 export const Links = ({ style, hideAtMobile = false }: ILinks) => {
   const mobileBreakpoint = "480px"
   return (
-    <div className={`${navStyles.links}`} style={{ ...style }}>
+    <div className={navStyles.links} style={{ ...style }}>
       <Link href="/">
         <a>HOME</a>
       </Link>
@@ -61,7 +61,10 @@ const Nav = () => {
         <Logo />
       </div>
 
-      <Links style={{ width: "283px", gap: "32px" }} hideAtMobile={true} />
+      <Links
+        style={{ width: "283px", gap: "32px", gridAutoFlow: "column" }}
+        hideAtMobile={true}
+      />
 
       <div className={navStyles.hamburger}>
         <Image
