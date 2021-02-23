@@ -1,0 +1,102 @@
+@import "mixins";
+@import "functions";
+
+.container {
+  border-radius: 10px;
+
+  background-color: #a2a2a2;
+  height: 500px;
+  padding: 50px 24px;
+
+  @include section-margin-bottom;
+
+  @media (min-width: breakpoint(tablet)) {
+    padding: 50px 170px 104px 58px;
+  }
+
+  @media (min-width: breakpoint(desktop)) {
+    height: 600px;
+  }
+
+  .content {
+    color: white;
+    text-align: center;
+    p {
+      opacity: 0.8;
+      margin-bottom: 39px;
+      line-height: 33px;
+
+      @media (min-width: breakpoint(desktop)) {
+        margin-bottom: 56px;
+      }
+    }
+
+    @media (min-width: breakpoint(tablet)) {
+      h2 {
+        font-size: map-get($heading-sizes, h2) + 0.5rem;
+      }
+      text-align: start;
+      padding-right: 10px;
+    }
+
+    @media (min-width: breakpoint(desktop)) {
+      h2 {
+        font-size: map-get($heading-sizes, h1);
+        margin-bottom: 24px;
+        margin-top: 50px;
+      }
+      margin-right: 500px;
+    }
+  }
+}
+
+#coffeepress {
+  @include background(
+    "../public/assets/home/mobile/image-hero-coffeepress.jpg"
+  );
+  @media (min-width: breakpoint(tablet)) {
+    @include background(
+      "../public/assets/home/tablet/image-hero-coffeepress.jpg"
+    );
+    padding: 50px 170px 104px 58px;
+  }
+
+  @media (min-width: breakpoint(desktop)) {
+    @include background(
+      "../public/assets/home/desktop/image-hero-coffeepress.jpg"
+    );
+    height: 600px;
+  }
+}
+
+#blackcup {
+  @include background("../public/assets/plan/mobile/image-hero-blackcup.jpg");
+  @media (min-width: breakpoint(tablet)) {
+    @include background("../public/assets/plan/tablet/image-hero-blackcup.jpg");
+    padding: 50px 170px 104px 58px;
+  }
+
+  @media (min-width: breakpoint(desktop)) {
+    @include background(
+      "../public/assets/plan/desktop/image-hero-blackcup.jpg"
+    );
+    height: 600px;
+  }
+}
+
+#whitecup {
+  @include background("../public/assets/about/mobile/image-hero-whitecup.jpg");
+  @media (min-width: breakpoint(tablet)) {
+    @include background(
+      "../public/assets/about/tablet/image-hero-whitecup.jpg"
+    );
+    padding: 50px 170px 104px 58px;
+  }
+
+  @media (min-width: breakpoint(desktop)) {
+    @include background(
+      "../public/assets/about/desktop/image-hero-whitecup.jpg"
+    );
+    height: 600px;
+  }
+}

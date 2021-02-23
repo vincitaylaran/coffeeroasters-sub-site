@@ -180,13 +180,13 @@
       }
     }
 
+    // See the HowItWorks component and HowItWorks.module.scss to configure its styles.
+
     button {
       position: relative;
       @media (max-width: breakpoint(mobile)) {
         left: 20%;
       }
     }
-
-    // See Drawing.module.scss for the Drawing component styles.
   }
 }

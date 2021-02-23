@@ -1,3 +1,5 @@
+@import "functions";
+
 // Include this mixin for each section in your homepage.
 @mixin responsive-padding {
   padding: 2rem 1.5rem 2.5rem;
@@ -18,6 +20,9 @@
 @mixin background($path) {
   background: url($path);
   background-size: cover;
+  // @media (min-width: breakpoint(tablet)) {
+  //   background-size: contain;
+  // }
   background-repeat: no-repeat;
 }
 

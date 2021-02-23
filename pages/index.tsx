@@ -6,6 +6,7 @@ import homeStyles from "../styles/Home.module.scss"
 import CollectionImage from "../components/CollectionImage"
 import Card from "../components/Card"
 import HowItWorks from "../components/HowItWorks"
+import Hero from "../components/Hero"
 
 export default function Home() {
   return (
@@ -14,18 +15,18 @@ export default function Home() {
         <title>Coffee Roasters</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className={homeStyles.hero}>
-        <div className={homeStyles.content}>
-          <h2>Great coffee made simple.</h2>
-          <p>
-            Start your mornings with the world’s best coffees. Try our expertly
-            curated artisan coffees from our best roasters delivered directly to
-            your door, at your schedule.
-          </p>
+
+      <section>
+        <Hero
+          background="coffeepress"
+          title="Great coffee made simple."
+          content="Start your mornings with the world’s best coffees. Try our expertly curated artisan 
+coffees from our best roasters delivered directly to your door, at your schedule."
+        >
           <Link href="/subscribe">
             <button>Create your plan</button>
           </Link>
-        </div>
+        </Hero>
       </section>
 
       <section className={homeStyles.ourCollection}>
