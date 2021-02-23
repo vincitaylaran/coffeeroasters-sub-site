@@ -1,6 +1,6 @@
 import howItWorks from "../styles/HowItWorks.module.scss"
 
-const HowItWorks = () => {
+const HowItWorks = ({ ...props }) => {
   return (
     <div className={howItWorks.grid}>
       <div className={howItWorks.cell}>
