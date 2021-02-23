@@ -1,0 +1,38 @@
+@import "mixins";
+@import "functions";
+
+.grid {
+  margin-bottom: 69px;
+  text-align: center;
+
+  @media (min-width: breakpoint(tablet)) {
+    text-align: start;
+  }
+
+  @include grid($gap: 56px) {
+    @media (min-width: breakpoint(tablet)) {
+      grid-auto-flow: column;
+      gap: 20px;
+    }
+    @media (min-width: breakpoint(desktop)) {
+      gap: 90px;
+    }
+  }
+
+  .cell {
+    @media (min-width: breakpoint(tablet)) {
+      .circle {
+        border-radius: 50%;
+        width: 31px;
+        height: 31px;
+        background: inherit;
+        border: 2px solid color(dark-cyan);
+      }
+    }
+
+    h1 {
+      color: color(pale-orange);
+      margin: 0;
+    }
+  }
+}

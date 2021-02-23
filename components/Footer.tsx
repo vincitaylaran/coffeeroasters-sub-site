@@ -22,13 +22,13 @@ const Footer = () => {
       <Links />
 
       <div className={footerStyles.socialMedia}>
-        <div>
+        <div style={{ cursor: "pointer" }}>
           <FacebookIcon />
         </div>
-        <div>
+        <div style={{ cursor: "pointer" }}>
           <TwitterIcon />
         </div>
-        <div>
+        <div style={{ cursor: "pointer" }}>
           <InstagramIcon />
         </div>
       </div>
