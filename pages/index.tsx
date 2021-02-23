@@ -1,11 +1,10 @@
 import Head from "next/head"
-import Image from "next/image"
+import Link from "next/link"
 
 import homeStyles from "../styles/Home.module.scss"
 
 import CollectionImage from "../components/CollectionImage"
 import Card from "../components/Card"
-import Drawing from "../components/Drawing"
 
 export default function Home() {
   return (
@@ -22,7 +21,9 @@ export default function Home() {
             curated artisan coffees from our best roasters delivered directly to
             your door, at your schedule.
           </p>
-          <button>Create your plan</button>
+          <Link href="/subscribe">
+            <button>Create your plan</button>
+          </Link>
         </div>
       </section>
 
@@ -116,10 +117,10 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <button onClick={() => console.log("Should go to subscribe page")}>
-          Create your plan
-        </button>
-        {/* TODO: set on click to go to subscribe page! */}
+
+        <Link href="/subscribe">
+          <button>Create your plan</button>
+        </Link>
       </section>
     </div>
   )
