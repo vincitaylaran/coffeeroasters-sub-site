@@ -7,34 +7,6 @@
   margin-bottom: 40px;
   align-items: center;
 
-  .links {
-    @media (max-width: breakpoint(mobile)) {
-      display: none;
-    }
-
-    width: 283px;
-
-    ul {
-      display: flex;
-      padding: 0;
-      margin: 0;
-      justify-content: space-between;
-      li {
-        list-style-type: none;
-
-        a {
-          font-size: 0.75rem;
-          font-weight: font-weight(bold);
-          color: color(grey);
-          letter-spacing: 0.8px;
-          &:hover {
-            color: color(dark-grey-blue);
-          }
-        }
-      }
-    }
-  }
-
   .hamburger {
     cursor: pointer;
 
@@ -48,5 +20,32 @@
     height: 26px;
     display: flex;
     align-content: center;
+  }
+}
+
+.links {
+  width: 283px;
+
+  // Check the Links component inside of Nav.tsx. It contains a media query that makes it hidden
+  // if the user passes "true" to the "hideAtMobile" prop.
+
+  @include grid(24px) {
+    @media (min-width: breakpoint(tablet)) {
+      grid-auto-flow: column;
+    }
+
+    @media (min-width: breakpoint(laptop)) {
+      gap: 0;
+    }
+  }
+
+  a {
+    font-size: 0.75rem;
+    font-weight: font-weight(bold);
+    color: color(grey);
+    letter-spacing: 0.8px;
+    &:hover {
+      color: color(dark-grey-blue);
+    }
   }
 }

@@ -26,29 +26,6 @@
     @include flex(row);
   }
 
-  .links {
-    width: 45%;
-    @include grid(24px) {
-      @media (min-width: breakpoint(tablet)) {
-        grid-auto-flow: column;
-      }
-
-      @media (min-width: breakpoint(laptop)) {
-        gap: 0;
-      }
-    }
-
-    a {
-      font-size: 0.75rem;
-      font-weight: font-weight(bold);
-      color: color(grey);
-      letter-spacing: 0.8px;
-      &:hover {
-        color: color(dark-grey-blue);
-      }
-    }
-  }
-
   .socialMedia {
     @include flex {
       justify-content: center;

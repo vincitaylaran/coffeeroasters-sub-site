@@ -4,6 +4,7 @@ import Logo from "./Logo"
 import FacebookIcon from "./FacebookIcon"
 import TwitterIcon from "./TwitterIcon"
 import InstagramIcon from "./InstagramIcon"
+import { Links } from "./Nav"
 
 const Footer = () => {
   return (
@@ -12,11 +13,13 @@ const Footer = () => {
         <Logo fill="#ffffff" />
       </div>
 
-      <div className={footerStyles.links}>
+      {/* <div className={footerStyles.links}>
         <a href="#">HOME</a>
         <a href="#">ABOUT US</a>
         <a href="#">CREATE YOUR PLAN</a>
-      </div>
+      </div> */}
+
+      <Links />
 
       <div className={footerStyles.socialMedia}>
         <div>
