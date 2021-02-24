@@ -11,3 +11,7 @@
 @function breakpoint($device) {
   @return map-get($breakpoints, $device);
 }
+
+@function heading($headingType) {
+  @return map-get($heading-sizes, $headingType);
+}
