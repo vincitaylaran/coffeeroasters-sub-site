@@ -1,8 +1,16 @@
 import howItWorks from "../styles/HowItWorks.module.scss"
 
-const HowItWorks = ({ ...props }) => {
+interface Props {
+  style?: object
+  dark?: boolean
+}
+
+const HowItWorks = ({ style, dark }: Props) => {
   return (
-    <div className={howItWorks.grid}>
+    <div
+      className={`${howItWorks.grid} ${dark && howItWorks.grid__dark}`}
+      style={{ ...style }}
+    >
       <div className={howItWorks.cell}>
         <div className={howItWorks.circle}></div>
         <h1>01</h1>

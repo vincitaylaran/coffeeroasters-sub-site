@@ -3,63 +3,10 @@
 
 #home {
   section.hero {
-    border-radius: 10px;
-    @include background(
-      "../public/assets/home/mobile/image-hero-coffeepress.jpg"
-    );
-    background-color: #a2a2a2;
-    height: 500px;
-    padding: 50px 24px;
-
-    @include section-margin-bottom;
-
-    @media (min-width: breakpoint(tablet)) {
-      @include background(
-        "../public/assets/home/tablet/image-hero-coffeepress.jpg"
-      );
-      padding: 50px 170px 104px 58px;
-    }
-
-    @media (min-width: breakpoint(desktop)) {
-      @include background(
-        "../public/assets/home/desktop/image-hero-coffeepress.jpg"
-      );
-      height: 600px;
-    }
-
-    .content {
-      color: white;
-      text-align: center;
-      p {
-        opacity: 0.8;
-        margin-bottom: 39px;
-
-        @media (min-width: breakpoint(desktop)) {
-          margin-bottom: 56px;
-        }
-      }
-
-      @media (min-width: breakpoint(tablet)) {
-        h2 {
-          font-size: map-get($heading-sizes, h2) + 0.5rem;
-        }
-        text-align: start;
-        padding-right: 10px;
-      }
-
-      @media (min-width: breakpoint(desktop)) {
-        h2 {
-          font-size: map-get($heading-sizes, h1);
-          margin-bottom: 24px;
-          margin-top: 50px;
-        }
-        margin-right: 500px;
-      }
-    }
+    // See Hero.module.scss for <Hero /> styles.
   }
 
   section.ourCollection {
-    @include section-margin-bottom;
     @include flex($direction: column);
     align-items: center;
 
@@ -108,14 +55,12 @@
   }
 
   section.whyChooseUs {
-    border-radius: 10px;
     background: #2c343e;
     height: 902px;
     margin: 0;
     color: color(light-cream);
     text-align: center;
     padding: 64px 24px 0;
-    @include section-margin-bottom;
 
     @media (min-width: breakpoint(tablet)) {
       height: 573px;
@@ -160,12 +105,20 @@
 
   section.howItWorks {
     padding-top: 600px; // This property gets overridden at tablet breakpoint or greater. This is here to avoid overlapping with the above section.
-    @include section-margin-bottom;
+
+    @media (max-width: breakpoint(mobile)) {
+      @include flex(column) {
+        align-items: center;
+      }
+    }
 
     // TODO: Refactor or remove these media queries! The reason for these media queries is because, without them, this section
     // will overlap with the grid of the "Why choose us?" section above.
     @media (min-width: breakpoint(tablet)) {
       padding-top: 350px;
+    }
+    @media (min-width: breakpoint(laptop)) {
+      padding-top: 100px;
     }
     @media (min-width: breakpoint(desktop)) {
       padding-top: 75px;
@@ -181,12 +134,5 @@
     }
 
     // See the HowItWorks component and HowItWorks.module.scss to configure its styles.
-
-    button {
-      position: relative;
-      @media (max-width: breakpoint(mobile)) {
-        left: 20%;
-      }
-    }
   }
 }

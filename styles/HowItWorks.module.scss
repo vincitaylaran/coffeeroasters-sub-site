@@ -2,8 +2,8 @@
 @import "functions";
 
 .grid {
-  margin-bottom: 69px;
   text-align: center;
+  margin-bottom: 69px;
 
   @media (min-width: breakpoint(tablet)) {
     text-align: start;
@@ -33,6 +33,23 @@
     h1 {
       color: color(pale-orange);
       margin: 0;
+    }
+  }
+
+  &__dark {
+    @include ignore-body-padding;
+
+    background: color(outer-space);
+    padding: 80px 24px;
+    margin-bottom: 0;
+    @media (min-width: breakpoint(desktop)) {
+      padding: 99px 150px 99px 85px;
+    }
+    .cell {
+      h3,
+      p {
+        color: white;
+      }
     }
   }
 }

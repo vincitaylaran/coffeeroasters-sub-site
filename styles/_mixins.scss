@@ -78,3 +78,11 @@
     padding-right: 84px;
   }
 }
+
+// Ignores the left and right padding of the body element in globals.scss.
+// Components such as <HowItWorks /> in the subscribe ignore the left and right padding of the body.
+@mixin ignore-body-padding {
+  @media (max-width: breakpoint(tablet)) {
+    margin: 0 -23px;
+  }
+}
