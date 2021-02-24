@@ -90,3 +90,11 @@ p {
   font-weight: font-weight(regular);
   letter-spacing: 1px;
 }
+
+section {
+  @include section-margin-bottom;
+  border-radius: 10px;
+  div {
+    border-radius: 10px;
+  }
+}
