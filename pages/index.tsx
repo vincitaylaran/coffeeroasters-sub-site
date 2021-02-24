@@ -14,9 +14,15 @@ export default function Home() {
       <Head>
         <title>Coffee Roasters</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="author" content="Vinci Taylaran" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="keywords"
+          content="frontend mentor, HTML, SASS, SCSS, TypeScript, NextJS, React.js, React"
+        />
       </Head>
 
-      <section>
+      <section className={homeStyles.hero}>
         <Hero
           background="coffeepress"
           title="Great coffee made simple."
