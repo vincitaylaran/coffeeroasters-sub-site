@@ -18,7 +18,7 @@
     margin: 0;
   }
 
-  @include between-breakpoints(breakpoint(tablet), breakpoint(desktop)) {
+  @include between-breakpoints(breakpoint(tablet), breakpoint(laptop) - 1) {
     flex-direction: row;
     text-align: start;
     padding: 41px 48px 31px;
