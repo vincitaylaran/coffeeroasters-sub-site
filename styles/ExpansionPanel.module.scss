@@ -1,0 +1,31 @@
+@import "mixins";
+@import "functions";
+
+.container {
+  .question {
+    cursor: pointer;
+
+    h4.title {
+      margin: 0;
+      @media (min-width: breakpoint(tablet)) {
+        font-size: heading(h3);
+      }
+      @media (min-width: breakpoint(desktop)) {
+        font-size: heading(h2);
+      }
+    }
+  }
+
+  .options {
+    display: none;
+    .option {
+      cursor: pointer;
+    }
+  }
+
+  .arrow {
+    &__open {
+      // rotate arrow 180deg
+    }
+  }
+}
