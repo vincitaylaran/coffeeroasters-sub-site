@@ -29,7 +29,7 @@ export default function Home() {
           content="Start your mornings with the world’s best coffees. Try our expertly curated artisan 
 coffees from our best roasters delivered directly to your door, at your schedule."
         >
-          <Link href="/subscribe">
+          <Link href="/plan">
             <button>Create your plan</button>
           </Link>
         </Hero>
@@ -95,7 +95,7 @@ coffees from our best roasters delivered directly to your door, at your schedule
 
         <HowItWorks />
 
-        <Link href="/subscribe">
+        <Link href="/plan">
           <button>Create your plan</button>
         </Link>
       </section>
