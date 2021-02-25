@@ -21,7 +21,7 @@ export const Links = ({ style, hideAtMobile = false }: ILinks) => {
       <Link href="/about">
         <a>ABOUT US</a>
       </Link>
-      <Link href="/subscribe">
+      <Link href="/plan">
         <a>CREATE YOUR PLAN</a>
       </Link>
       <style jsx>{`
