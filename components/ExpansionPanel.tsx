@@ -1,19 +1,31 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import expansionPanelStyles from "../styles/ExpansionPanel.module.scss"
 
-type Option = { title: string; description: string; onSelect }
-
-interface Props {
+export type Answer = {
   title: string
-  options: Option[]
+  description: string
+  onSelect(id: number, option: string)
 }
 
-const ExpansionPanel = ({ title, options }: Props) => {
+export interface Props {
+  id: number
+  title: string
+  shouldBeOpen: boolean
+  answers: Answer[]
+}
+
+const ExpansionPanel = ({ id, title, shouldBeOpen, answers }: Props) => {
   const [isPanelOpen, setIsPanelOpen] = useState<boolean>(false)
 
+  useEffect(() => {
+    if (shouldBeOpen) {
+      setIsPanelOpen(true)
+    }
+  }, [shouldBeOpen])
+
   return (
-    <div className={expansionPanelStyles.container}>
+    <div id={`panel-${id}`} className={expansionPanelStyles.container}>
       <div
         className={expansionPanelStyles.question}
         onClick={() => {
@@ -26,15 +38,17 @@ const ExpansionPanel = ({ title, options }: Props) => {
         className={expansionPanelStyles.options}
         style={{ display: `${isPanelOpen ? "block" : "none"}` }}
       >
-        {options.map((option, index) => {
+        {answers.map((answer, index) => {
           return (
             <div
               key={index}
               className={expansionPanelStyles.option}
-              onClick={() => option.onSelect(option.title)}
+              onClick={() => answer.onSelect(id, answer.title)}
             >
-              <h4>{option.title}</h4>
-              <p>{option.description}</p>
+              <a href={`#panel-${index + 1}`}>
+                <h4>{answer.title}</h4>
+                <p>{answer.description}</p>
+              </a>
             </div>
           )
         })}
