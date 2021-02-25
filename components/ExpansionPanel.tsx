@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 
 import expansionPanelStyles from "../styles/ExpansionPanel.module.scss"
+import ArrowIcon from "./ArrowIcon"
 
 export type Answer = {
   title: string
@@ -25,7 +26,7 @@ const ExpansionPanel = ({ id, title, shouldBeOpen, answers }: Props) => {
   }, [shouldBeOpen])
 
   return (
-    <div id={`panel-${id}`} className={expansionPanelStyles.container}>
+    <div className={expansionPanelStyles.container} id={`panel-${id}`}>
       <div
         className={expansionPanelStyles.question}
         onClick={() => {
@@ -33,23 +34,31 @@ const ExpansionPanel = ({ id, title, shouldBeOpen, answers }: Props) => {
         }}
       >
         <h4 className={expansionPanelStyles.title}>{title}</h4>
+        <div
+          className={`${expansionPanelStyles.arrow} ${
+            isPanelOpen ? expansionPanelStyles.arrow__flipped : ""
+          }`}
+        >
+          <ArrowIcon />
+        </div>
       </div>
       <div
-        className={expansionPanelStyles.options}
+        className={expansionPanelStyles.answers}
         style={{ display: `${isPanelOpen ? "block" : "none"}` }}
       >
         {answers.map((answer, index) => {
           return (
-            <div
-              key={index}
-              className={expansionPanelStyles.option}
-              onClick={() => answer.onSelect(id, answer.title)}
-            >
-              <a href={`#panel-${index + 1}`}>
+            <a href={`#panel-${index + 1}`} key={index}>
+              <div
+                className={expansionPanelStyles.answer}
+                onClick={() => answer.onSelect(id, answer.title)}
+              >
+                {/* TODO: Scroll behavior when selecting another answer for a question. */}
+
                 <h4>{answer.title}</h4>
                 <p>{answer.description}</p>
-              </a>
-            </div>
+              </div>
+            </a>
           )
         })}
       </div>

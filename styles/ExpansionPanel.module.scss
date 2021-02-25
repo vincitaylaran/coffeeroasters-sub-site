@@ -4,6 +4,9 @@
 .container {
   .question {
     cursor: pointer;
+    @include flex(row) {
+      justify-content: space-between;
+    }
 
     h4.title {
       margin: 0;
@@ -16,16 +19,20 @@
     }
   }
 
-  .options {
-    display: none;
-    .option {
+  .answers {
+    .answer {
       cursor: pointer;
     }
   }
 
   .arrow {
-    &__open {
-      // rotate arrow 180deg
+    @include flex(row) {
+      align-items: center;
+    }
+
+    &__flipped {
+      transform: rotate(180deg);
+      transform-origin: 50% 50%;
     }
   }
 }
