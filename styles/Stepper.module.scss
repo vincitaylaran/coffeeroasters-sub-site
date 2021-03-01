@@ -1,0 +1,13 @@
+@import "functions";
+
+.steps {
+  @media (max-width: breakpoint(laptop) - 1) {
+    display: none;
+  }
+
+  .step {
+    &__current {
+      font-weight: font-weight(bold);
+    }
+  }
+}
