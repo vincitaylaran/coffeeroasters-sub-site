@@ -5,6 +5,7 @@ import Head from "next/head"
 import Hero from "../components/Hero"
 import HowItWorks from "../components/HowItWorks"
 import ExpansionPanel from "../components/ExpansionPanel"
+import Stepper from "../components/Stepper"
 
 import planStyles from "../styles/Plan.module.scss"
 
@@ -117,11 +118,17 @@ const subscribe = () => {
       answer: "",
     },
   ])
+  const [currentPanel, setCurrentPanel] = useState<number>(0)
 
-  const onSelect = (id: number, answer: string) => {
+  const onSelect = (panelId: number, answer: string) => {
     let questionsCopy = deepClone(questions)
-    questionsCopy[id].answer = answer
+    questionsCopy[panelId].answer = answer
     setQuestions(questionsCopy)
+    if (questions[0].answer === "Capsule" && currentPanel === 2) {
+      setCurrentPanel(panelId + 2)
+    } else {
+      setCurrentPanel(panelId + 1)
+    }
   }
 
   return (
@@ -139,30 +146,39 @@ const subscribe = () => {
         />
       </section>
 
+      {/* TODO: Set background to image in assets. */}
       <section className={planStyles.howItWorks}>
         <HowItWorks dark />
       </section>
 
       <section className={planStyles.createYourPlan}>
-        {questions.map((q, i) => (
-          <ExpansionPanel
-            key={i}
-            id={i}
-            title={q.question}
-            shouldBeOpen={i === 0 || questions[i - 1].answer !== ""}
-            answers={q.answers.map((option) => {
-              return { ...option, onSelect }
-            })}
-          />
-        ))}
-      </section>
+        <Stepper currentStep={currentPanel} />
 
-      <section className={planStyles.orderSummary}>
-        <ul>
+        <div className={planStyles.panels}>
           {questions.map((q, i) => (
-            <li key={i}>{q.answer}</li>
+            <ExpansionPanel
+              key={i}
+              id={i}
+              title={q.question}
+              userChoice={q.answer}
+              currentPanel={currentPanel}
+              shouldBeOpen={i === 0 || questions[i - 1].answer !== ""}
+              answers={q.answers.map((option) => {
+                return { ...option, onSelect }
+              })}
+              disabled={
+                questions[0].answer === "Capsule" &&
+                questions[i].question === "Want us to grind them?"
+              }
+            />
           ))}
-        </ul>
+
+          <ul>
+            {questions.map((q, i) => (
+              <li key={i}>{q.answer}</li>
+            ))}
+          </ul>
+        </div>
       </section>
     </div>
   )

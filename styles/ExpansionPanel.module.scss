@@ -9,7 +9,9 @@
     }
 
     h4.title {
+      color: color(grey);
       margin: 0;
+      margin-bottom: 32px;
       @media (min-width: breakpoint(tablet)) {
         font-size: heading(h3);
       }
@@ -17,20 +19,66 @@
         font-size: heading(h2);
       }
     }
+
+    &__disabled {
+      * {
+        opacity: 0.5;
+      }
+    }
   }
 
   .answers {
+    // The "display" property is controlled within the Expansion Panel component. See ExpansionPanel.tsx in components.
+    gap: 16px;
+    @media (min-width: breakpoint(tablet)) {
+      grid-auto-flow: column;
+    }
+
+    margin-bottom: 96px;
+
     .answer {
       cursor: pointer;
+      background: color(spring-wood);
+      height: 140px;
+      padding: 20px 22px 20px;
+
+      @media (min-width: breakpoint(tablet)) {
+        padding-top: 32px;
+        height: 250px;
+        width: 223px;
+      }
+
+      @media (min-width: breakpoint(laptop)) {
+        width: 228px;
+      }
+
+      h4.answerTitle {
+        color: color(dark-grey-blue);
+        margin: 0;
+        font-weight: font-weight(extra-bold);
+      }
+
+      &__selected {
+        h4.answerTitle,
+        p {
+          color: white;
+        }
+
+        background: color(dark-cyan);
+      }
     }
   }
 
   .arrow {
+    padding-top: 10px;
     @include flex(row) {
-      align-items: center;
+      align-items: flex-start;
     }
 
+    // TODO: create a hover state with color #66D2CF.
+
     &__flipped {
+      align-items: flex-end;
       transform: rotate(180deg);
       transform-origin: 50% 50%;
     }

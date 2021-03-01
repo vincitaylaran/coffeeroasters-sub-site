@@ -9,8 +9,13 @@
   }
 
   section.createYourPlan {
-    @include grid;
+    @include grid {
+      grid-auto-flow: column;
+    }
 
+    .panels {
+      @include grid;
+    }
     // See ExpansionPanel.module.scss for <ExpansionPanel /> styles.
   }
 }

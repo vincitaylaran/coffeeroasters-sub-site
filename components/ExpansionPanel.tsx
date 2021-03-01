@@ -13,24 +13,48 @@ export interface Props {
   id: number
   title: string
   shouldBeOpen: boolean
+  currentPanel?: number
+  userChoice?: string
+  disabled?: boolean
   answers: Answer[]
 }
 
-const ExpansionPanel = ({ id, title, shouldBeOpen, answers }: Props) => {
+const ExpansionPanel = ({
+  id,
+  title,
+  shouldBeOpen,
+  answers,
+  currentPanel,
+  userChoice,
+  disabled = false,
+}: Props) => {
   const [isPanelOpen, setIsPanelOpen] = useState<boolean>(false)
 
   useEffect(() => {
-    if (shouldBeOpen) {
+    if (shouldBeOpen || currentPanel === id) {
       setIsPanelOpen(true)
     }
-  }, [shouldBeOpen])
+
+    if (disabled) {
+      setIsPanelOpen(false)
+    }
+  }, [shouldBeOpen, disabled, currentPanel])
 
   return (
     <div className={expansionPanelStyles.container} id={`panel-${id}`}>
       <div
-        className={expansionPanelStyles.question}
+        className={`${expansionPanelStyles.question} ${
+          disabled ? expansionPanelStyles.question__disabled : ""
+        }`}
         onClick={() => {
           setIsPanelOpen(isPanelOpen ? false : true)
+
+          // If the user selected "Capsule" for the first question, then the option to select whether
+          // if the coffee should be ground should be disabled. Coffee in capsules are already ground,
+          // so therefore the question should be disabled.
+          if (disabled) {
+            setIsPanelOpen(false)
+          }
         }}
       >
         <h4 className={expansionPanelStyles.title}>{title}</h4>
@@ -44,21 +68,27 @@ const ExpansionPanel = ({ id, title, shouldBeOpen, answers }: Props) => {
       </div>
       <div
         className={expansionPanelStyles.answers}
-        style={{ display: `${isPanelOpen ? "block" : "none"}` }}
+        style={{ display: `${isPanelOpen ? "grid" : "none"}` }}
       >
         {answers.map((answer, index) => {
           return (
-            <a href={`#panel-${index + 1}`} key={index}>
-              <div
-                className={expansionPanelStyles.answer}
-                onClick={() => answer.onSelect(id, answer.title)}
-              >
-                {/* TODO: Scroll behavior when selecting another answer for a question. */}
-
-                <h4>{answer.title}</h4>
+            <div
+              key={index}
+              className={`${expansionPanelStyles.answer} ${
+                userChoice && userChoice === answer.title
+                  ? expansionPanelStyles.answer__selected
+                  : ""
+              }`}
+              onClick={() => answer.onSelect(id, answer.title)}
+            >
+              {/* TODO: Scroll behavior when selecting another answer for a question. */}
+              <a href={`#panel-${currentPanel}`}>
+                <h4 className={expansionPanelStyles.answerTitle}>
+                  {answer.title}
+                </h4>
                 <p>{answer.description}</p>
-              </div>
-            </a>
+              </a>
+            </div>
           )
         })}
       </div>
