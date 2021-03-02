@@ -1,1 +1,28 @@
 @import "functions";
+
+.summary {
+  height: 338px;
+  background: color(outer-space);
+  color: white;
+
+  @media (min-width: breakpoint(tablet)) {
+    height: 208px;
+  }
+  @media (min-width: breakpoint(desktop)) {
+    height: 208px;
+  }
+
+  .title {
+    font-size: 1.625rem;
+  }
+
+  .content {
+    font-size: 1.5rem;
+    .answer {
+      color: color(dark-cyan);
+    }
+    @media (min-width: breakpoint(tablet)) {
+      font-size: heading-sizes(h2);
+    }
+  }
+}
