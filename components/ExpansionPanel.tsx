@@ -44,14 +44,14 @@ const ExpansionPanel = ({
     <div className={expansionPanelStyles.container} id={`panel-${id}`}>
       <div
         className={`${expansionPanelStyles.question} ${
-          disabled ? expansionPanelStyles.question__disabled : ""
+          disabled && expansionPanelStyles.question__disabled
         }`}
         onClick={() => {
           setIsPanelOpen(isPanelOpen ? false : true)
 
-          // If the user selected "Capsule" for the first question, then the option to select whether
-          // if the coffee should be ground should be disabled. Coffee in capsules are already ground,
-          // so therefore the question should be disabled.
+          // If the user selected "Capsule" for the first question, then the "Want us to grind them?"
+          // question should be disabled. Coffee is always ground for capsules so it wouldn't make sense
+          // to ask the question.
           if (disabled) {
             setIsPanelOpen(false)
           }

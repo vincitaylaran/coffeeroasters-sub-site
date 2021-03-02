@@ -2,14 +2,15 @@ import { useState } from "react"
 
 import Head from "next/head"
 
-import Hero from "../components/Hero"
-import HowItWorks from "../components/HowItWorks"
-import ExpansionPanel from "../components/ExpansionPanel"
-import Stepper from "../components/Stepper"
-
 import planStyles from "../styles/Plan.module.scss"
 
 import { deepClone } from "../utils"
+
+import Hero from "../components/Hero"
+import HowItWorks from "../components/HowItWorks"
+import ExpansionPanel from "../components/ExpansionPanel"
+import OrderSummary from "../components/OrderSummary"
+import Stepper from "../components/Stepper"
 
 type Answer = { title: string; description: string }
 type Question = { question: string; answer: string; answers: Answer[] }
@@ -122,9 +123,14 @@ const subscribe = () => {
 
   const onSelect = (panelId: number, answer: string) => {
     let questionsCopy = deepClone(questions)
+    const firstAnswer = questions[0].answer
     questionsCopy[panelId].answer = answer
     setQuestions(questionsCopy)
-    if (questions[0].answer === "Capsule" && currentPanel === 2) {
+
+    // When selecting an answer from the "How much would you like?" question, the app skips the "Want us to grind them?"
+    // question and scrolls down to the final question. This only occurs if the user selects "Capsule" as the answer
+    // to the first question.
+    if (firstAnswer === "Capsule" && currentPanel === 2) {
       setCurrentPanel(panelId + 2)
     } else {
       setCurrentPanel(panelId + 1)
@@ -155,6 +161,7 @@ const subscribe = () => {
         <Stepper currentStep={currentPanel} />
 
         <div className={planStyles.panels}>
+          {/* TODO: Refactor <ExpansionPanel />. There are too many props to keep track of and it is complex! Simplify this! */}
           {questions.map((q, i) => (
             <ExpansionPanel
               key={i}
@@ -162,7 +169,7 @@ const subscribe = () => {
               title={q.question}
               userChoice={q.answer}
               currentPanel={currentPanel}
-              shouldBeOpen={i === 0 || questions[i - 1].answer !== ""}
+              shouldBeOpen={i === 0}
               answers={q.answers.map((option) => {
                 return { ...option, onSelect }
               })}
@@ -173,11 +180,12 @@ const subscribe = () => {
             />
           ))}
 
-          <ul>
-            {questions.map((q, i) => (
-              <li key={i}>{q.answer}</li>
-            ))}
-          </ul>
+          <OrderSummary answers={questions.map((q) => q.answer)} />
+
+          {/* TODO: Create a modal window on click */}
+          <button disabled={!questions.every((q) => q.answer !== "")}>
+            Create my plan!
+          </button>
         </div>
       </section>
     </div>
