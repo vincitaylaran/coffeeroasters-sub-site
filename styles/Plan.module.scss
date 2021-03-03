@@ -15,6 +15,13 @@
 
     .panels {
       @include grid;
+      .createYourPlanBtn {
+        display: flex;
+        justify-content: center;
+        @media (min-width: breakpoint(laptop)) {
+          justify-content: flex-end;
+        }
+      }
     }
     // See ExpansionPanel.module.scss for <ExpansionPanel /> styles.
   }
