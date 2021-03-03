@@ -46,6 +46,9 @@
     @media (min-width: breakpoint(tablet)) {
       grid-auto-flow: column;
     }
+    @media (min-width: breakpoint(laptop)) {
+      gap: 0;
+    }
 
     margin-bottom: 96px;
 

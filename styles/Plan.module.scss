@@ -15,6 +15,11 @@
 
     .panels {
       @include grid;
+
+      @media (min-width: breakpoint(desktop)) {
+        width: 90%;
+      }
+
       .createYourPlanBtn {
         display: flex;
         justify-content: center;

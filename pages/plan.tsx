@@ -189,7 +189,11 @@ const subscribe = () => {
       </section>
 
       <section className={planStyles.createYourPlan}>
-        <Stepper currentStep={currentPanel} onStep={onStep} />
+        <Stepper
+          currentStep={currentPanel}
+          answers={questions.map((q) => q.answer)}
+          onStep={onStep}
+        />
 
         <div className={planStyles.panels}>
           {questions.map((q, i) => (
