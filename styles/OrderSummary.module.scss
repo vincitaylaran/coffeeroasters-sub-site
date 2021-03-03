@@ -1,28 +1,53 @@
 @import "functions";
+@import "mixins";
 
 .summary {
+  @include flex(column) {
+    justify-content: center;
+    align-content: center;
+  }
+
   height: 338px;
   background: color(outer-space);
   color: white;
+  margin-bottom: 56px;
+  padding: 0 24px;
+
+  @media (max-width: breakpoint(mobile-s)) {
+    height: 410px;
+  }
 
   @media (min-width: breakpoint(tablet)) {
     height: 208px;
+    margin-bottom: 40px;
+    padding: 0 44px;
   }
   @media (min-width: breakpoint(desktop)) {
     height: 208px;
+    padding: 0 64px;
   }
 
   .title {
-    font-size: 1.625rem;
+    font-size: 1rem;
+    letter-spacing: 1.1px;
+    opacity: 0.5;
+    mix-blend-mode: normal;
+    text-transform: uppercase;
   }
 
   .content {
+    margin-top: 8px;
     font-size: 1.5rem;
+    font-weight: font-weight(extra-bold);
+    font-family: Fraunces, sans-serif;
+    line-height: 167%;
+    letter-spacing: 1px;
+    h4 {
+      margin: 0;
+    }
     .answer {
       color: color(dark-cyan);
-    }
-    @media (min-width: breakpoint(tablet)) {
-      font-size: heading-sizes(h2);
+      text-transform: capitalize;
     }
   }
 }
