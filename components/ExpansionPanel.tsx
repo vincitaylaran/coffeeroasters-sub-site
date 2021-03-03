@@ -81,12 +81,17 @@ const ExpansionPanel = ({
               }`}
               onClick={() => answer.onSelect(id, answer.title)}
             >
-              {/* TODO: Scroll behavior when selecting another answer for a question. */}
-              <a href={`#panel-${currentPanel}`}>
+              <a
+                href={
+                  currentPanel === 5 ? "#summary" : `#panel-${currentPanel}`
+                }
+              >
                 <h4 className={expansionPanelStyles.answerTitle}>
                   {answer.title}
                 </h4>
-                <p>{answer.description}</p>
+                <p className={expansionPanelStyles.answerDesc}>
+                  {answer.description}
+                </p>
               </a>
             </div>
           )

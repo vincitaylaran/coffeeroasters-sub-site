@@ -6,6 +6,7 @@
   justify-content: space-between;
   margin-bottom: 40px;
   align-items: center;
+  @include responsive-padding;
 
   .hamburger {
     cursor: pointer;

@@ -63,6 +63,7 @@ coffees from our best roasters delivered directly to your door, at your schedule
         </div>
       </section>
 
+      {/* TODO: This section should not ignore padding. */}
       <section className={homeStyles.whyChooseUs}>
         <h4 className={homeStyles.sectionTitle}>Why choose us?</h4>
         <p className={homeStyles.description}>

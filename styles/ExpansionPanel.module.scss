@@ -12,11 +12,24 @@
       color: color(grey);
       margin: 0;
       margin-bottom: 32px;
+
       @media (min-width: breakpoint(tablet)) {
-        font-size: heading(h3);
+        font-size: heading(
+          h3
+        ); // The heading function returns rem units when you specify the heading type
       }
+
       @media (min-width: breakpoint(desktop)) {
         font-size: heading(h2);
+      }
+    }
+
+    // Changes the color of the arrow icon when hovering over the entire panel
+    &:hover {
+      .icon {
+        path {
+          fill: #66d2cf;
+        }
       }
     }
 
@@ -42,6 +55,18 @@
       height: 140px;
       padding: 20px 22px 20px;
 
+      @media (max-width: breakpoint(mobile-s)) {
+        a {
+          p.answerDesc {
+            margin: 10px 0;
+          }
+        }
+        padding: 10px 15px 0;
+        @include flex {
+          align-items: center;
+        }
+      }
+
       @media (min-width: breakpoint(tablet)) {
         padding-top: 32px;
         height: 250px;
@@ -63,7 +88,6 @@
         p {
           color: white;
         }
-
         background: color(dark-cyan);
       }
     }
@@ -74,8 +98,6 @@
     @include flex(row) {
       align-items: flex-start;
     }
-
-    // TODO: create a hover state with color #66D2CF.
 
     &__flipped {
       align-items: flex-end;

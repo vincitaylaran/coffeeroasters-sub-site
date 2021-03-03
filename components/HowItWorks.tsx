@@ -11,6 +11,7 @@ const HowItWorks = ({ style, dark }: Props) => {
       className={`${howItWorks.grid} ${dark && howItWorks.grid__dark}`}
       style={{ ...style }}
     >
+      {/* TODO: Create a line that goes through each circle. */}
       <div className={howItWorks.cell}>
         <div className={howItWorks.circle}></div>
         <h1>01</h1>
