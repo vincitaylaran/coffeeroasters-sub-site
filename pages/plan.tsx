@@ -11,6 +11,7 @@ import HowItWorks from "../components/HowItWorks"
 import ExpansionPanel from "../components/ExpansionPanel"
 import OrderSummary from "../components/OrderSummary"
 import Stepper from "../components/Stepper"
+import Modal from "../components/Modal"
 
 type Answer = { title: string; description: string }
 type Question = { question: string; answer: string; answers: Answer[] }
@@ -120,6 +121,7 @@ const subscribe = () => {
     },
   ])
   const [currentPanel, setCurrentPanel] = useState<number>(0)
+  const [isModalClosed, setIsModalClosed] = useState<boolean>(true)
 
   const onSelect = (panelId: number, answer: string) => {
     let questionsCopy = deepClone(questions)
@@ -137,13 +139,39 @@ const subscribe = () => {
     }
   }
 
+  const shouldBeDisabled = () => {
+    if (questions[0].answer === "Capsule") {
+      if (
+        questions[1].answer !== "" &&
+        questions[2].answer !== "" &&
+        questions[4].answer !== ""
+      ) {
+        return false
+      }
+    } else if (questions.every((q) => q.answer !== "")) {
+      return false
+    }
+    return true
+  }
+
+  const onModal = () => {
+    setIsModalClosed(!isModalClosed)
+  }
+
   return (
     <div id={planStyles.plan}>
       <Head>
         <title>Plan | Coffee Roasters</title>
       </Head>
+      <Modal
+        // answers={questions.map((q) => q.answer)}
+        answers={questions.map((q) => q.answer)}
+        isClosed={isModalClosed}
+        onModal={onModal}
+      />
 
       <section className={planStyles.hero}>
+        {/* TODO: Image for Hero breaks at 768px. */}
         <Hero
           background="blackcup"
           title="Create a plan"
@@ -152,7 +180,6 @@ const subscribe = () => {
         />
       </section>
 
-      {/* TODO: Set background to image in assets. */}
       <section className={planStyles.howItWorks}>
         <HowItWorks dark />
       </section>
@@ -161,7 +188,6 @@ const subscribe = () => {
         <Stepper currentStep={currentPanel} />
 
         <div className={planStyles.panels}>
-          {/* TODO: Refactor <ExpansionPanel />. There are too many props to keep track of and it is complex! Simplify this! */}
           {questions.map((q, i) => (
             <ExpansionPanel
               key={i}
@@ -183,9 +209,11 @@ const subscribe = () => {
           <OrderSummary answers={questions.map((q) => q.answer)} />
 
           {/* TODO: Create a modal window on click */}
-          <button disabled={!questions.every((q) => q.answer !== "")}>
-            Create my plan!
-          </button>
+          <div className={planStyles.createYourPlanBtn}>
+            <button disabled={shouldBeDisabled()} onClick={onModal}>
+              Create my plan!
+            </button>
+          </div>
         </div>
       </section>
     </div>

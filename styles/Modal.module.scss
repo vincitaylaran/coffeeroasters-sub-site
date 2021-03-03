@@ -1,0 +1,140 @@
+@import "mixins";
+@import "functions";
+
+.modal {
+  @include flex {
+    justify-content: center;
+    align-items: center;
+  }
+
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Overlay effect: translucent background: black w/ partial opacity */
+  z-index: 1; /* Overlay effect: positioned over other containers */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  position: fixed; /* Fix position on the top-left corner*/
+  top: 0;
+  left: 0;
+  overflow: auto; /* Enable scroll if needed */
+  //   padding-top: 80px; /* Location of the content container */
+
+  .window {
+    background: color(light-cream);
+    border-color: none;
+    border-radius: 10px;
+
+    // Default width and height of window when on mobile
+    width: 327px;
+    height: 597px;
+
+    // For small mobile devices (320px or less)
+    @media (max-width: breakpoint(mobile-s)) {
+      width: 300px;
+      height: 645px;
+    }
+
+    // Height and width for tablet and desktop
+    @media (min-width: breakpoint(tablet)) {
+      width: 540px;
+    }
+
+    .title {
+      @include flex {
+        align-items: center;
+      }
+      padding-left: 24px;
+      background: color(dark-grey-blue);
+      color: white;
+      height: 88px;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+      margin-bottom: 24px;
+
+      @media (min-width: breakpoint(tablet)) {
+        height: 136px;
+        padding-left: 48px;
+        margin-bottom: 57px;
+      }
+
+      h4 {
+        margin: 0;
+        @media (min-width: breakpoint(tablet)) {
+          font-size: heading(h2);
+        }
+      }
+    }
+
+    .content {
+      @include flex(column) {
+        align-items: center;
+      }
+
+      padding: 0 24px;
+      color: color(grey);
+
+      h4 {
+        margin: 0;
+        line-height: 40px;
+
+        @media (min-width: breakpoint(tablet)) {
+          margin-bottom: 7px;
+        }
+      }
+
+      @media (min-width: breakpoint(tablet)) {
+        padding: 0 56px;
+      }
+
+      .confirmation {
+        margin-top: 0;
+        margin-bottom: 24px;
+        line-height: 25px;
+        color: color(dark-grey-blue);
+
+        @media (width: breakpoint(tablet)) {
+          margin-bottom: 47px;
+        }
+      }
+
+      .pricePerMonth {
+        @include flex {
+          align-items: center;
+        }
+
+        h3 {
+          display: none;
+          margin: 0;
+          color: color(dark-grey-blue);
+          @media (min-width: breakpoint(tablet)) {
+            display: inline;
+            margin-right: 13px;
+          }
+        }
+
+        button {
+          width: 279px;
+
+          @media (min-width: breakpoint(tablet)) {
+            width: 217px;
+          }
+
+          .btnText {
+            display: inline;
+            @media (min-width: breakpoint(tablet)) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__hidden {
+    display: none;
+  }
+}
