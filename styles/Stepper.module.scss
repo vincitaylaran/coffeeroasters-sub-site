@@ -18,7 +18,7 @@
   line-height: 32px;
   font-weight: font-weight(extra-bold);
 
-  @media (max-width: breakpoint(laptop) - 1) {
+  @media (max-width: breakpoint(desktop)) {
     display: none;
   }
 
@@ -29,6 +29,7 @@
     hr {
       width: 255px;
       margin: 24px 0;
+      opacity: 0.25;
     }
 
     &:hover {
@@ -42,6 +43,16 @@
       list-style-type: none;
       font-weight: font-weight(extra-bold);
       @include step-children;
+
+      hr {
+        width: 255px;
+        margin: 24px 0;
+        opacity: 0.25;
+      }
+    }
+
+    &__disabled {
+      opacity: 0.2;
     }
   }
 }
