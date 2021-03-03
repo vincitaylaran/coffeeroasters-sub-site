@@ -1,13 +1,47 @@
 @import "functions";
 
+@mixin step-children {
+  .stepNum {
+    color: color(dark-cyan);
+    margin-right: 25.5px;
+  }
+
+  .stepTitle {
+    color: color(dark-grey-blue);
+  }
+}
+
 .steps {
+  margin-right: 125px;
+  font-family: Fraunces, sans-serif;
+  font-size: 1.5rem;
+  line-height: 32px;
+  font-weight: font-weight(extra-bold);
+
   @media (max-width: breakpoint(laptop) - 1) {
     display: none;
   }
 
   .step {
+    list-style-type: none;
+    opacity: 0.4;
+
+    hr {
+      width: 255px;
+      margin: 24px 0;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    @include step-children;
+
     &__current {
       font-weight: font-weight(bold);
+      list-style-type: none;
+      font-weight: font-weight(extra-bold);
+      @include step-children;
     }
   }
 }

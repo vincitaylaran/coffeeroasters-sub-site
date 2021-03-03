@@ -4,9 +4,10 @@ import { deepClone } from "../utils"
 
 interface Props {
   currentStep: number
+  onStep?: (stepNum: number) => void
 }
 
-const Stepper = ({ currentStep }: Props) => {
+const Stepper = ({ currentStep, onStep }: Props) => {
   const [steps, setSteps] = useState<any[]>([
     { title: "Preferences", isCurrentStep: false },
     { title: "Bean Type", isCurrentStep: false },
@@ -30,9 +31,20 @@ const Stepper = ({ currentStep }: Props) => {
       {steps.map((step, i) => (
         <li
           key={i}
-          className={step.isCurrentStep ? stepperStyles.step__current : ""}
+          onClick={() => onStep(i)}
+          className={
+            step.isCurrentStep
+              ? stepperStyles.step__current
+              : stepperStyles.step
+          }
         >
-          0{i + 1} {step.title}
+          <a href={`#panel-${i}`}>
+            <span className={stepperStyles.stepNum}>0{i + 1} </span>
+            <span className={stepperStyles.stepTitle}>{step.title}</span>
+          </a>
+
+          {/* Includes the horizonal line in all steps except for the final step */}
+          {i !== steps.length - 1 && <hr />}
         </li>
       ))}
     </ul>

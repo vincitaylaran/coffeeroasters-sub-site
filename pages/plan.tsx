@@ -158,6 +158,10 @@ const subscribe = () => {
     setIsModalClosed(!isModalClosed)
   }
 
+  const onStep = (stepNum: number) => {
+    setCurrentPanel(stepNum)
+  }
+
   return (
     <div id={planStyles.plan}>
       <Head>
@@ -185,7 +189,7 @@ const subscribe = () => {
       </section>
 
       <section className={planStyles.createYourPlan}>
-        <Stepper currentStep={currentPanel} />
+        <Stepper currentStep={currentPanel} onStep={onStep} />
 
         <div className={planStyles.panels}>
           {questions.map((q, i) => (
@@ -208,7 +212,6 @@ const subscribe = () => {
 
           <OrderSummary answers={questions.map((q) => q.answer)} />
 
-          {/* TODO: Create a modal window on click */}
           <div className={planStyles.createYourPlanBtn}>
             <button disabled={shouldBeDisabled()} onClick={onModal}>
               Create my plan!
