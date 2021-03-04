@@ -1,6 +1,6 @@
 # Challenges
 
-## <HowItWorks />
+## HowItWorks component
 
 The drawing with the circles in the HowItWorks component wasn't particularly difficult to implement, but it was frustrating to find a clean implementation.
 
