@@ -2,18 +2,18 @@
 
 // Include this mixin for each section in your homepage.
 @mixin responsive-padding {
-  padding: 2rem 1.5rem 2.5rem;
+  padding: 0 1.5rem 0;
 
   @media (min-width: breakpoint(tablet)) {
-    padding: 2.5rem 2.5rem 2.55rem;
+    padding: 0 2.5rem 0;
   }
 
   @media (min-width: breakpoint(laptop)) {
-    padding: 2.6rem 3.5rem 2.65rem;
+    padding: 0 3.5rem 0;
   }
 
   @media (min-width: breakpoint(desktop)) {
-    padding: 2.723rem 5rem 2.9rem;
+    padding: 0 5rem 0;
   }
 }
 
