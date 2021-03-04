@@ -20,10 +20,10 @@
 @mixin background($path) {
   background: url($path);
   background-size: cover;
-  // @media (min-width: breakpoint(tablet)) {
-  //   background-size: contain;
-  // }
   background-repeat: no-repeat;
+  @media (max-width: breakpoint(mobile)) {
+    height: 400px;
+  }
 }
 
 @mixin flex($direction: row) {

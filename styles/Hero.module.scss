@@ -3,7 +3,6 @@
 
 .container {
   background-color: #a2a2a2;
-  height: 600px;
   display: flex;
   align-items: center;
   padding: 0 24px;
@@ -11,35 +10,56 @@
   .content {
     color: white;
     text-align: center;
-    p {
+
+    @media (min-width: breakpoint(tablet)) {
+      text-align: start;
+    }
+
+    .title {
+      margin: 0;
+      font-size: heading(h2);
+
+      @media (max-width: breakpoint(mobile-s)) {
+        font-size: heading(h3);
+      }
+
+      @media (min-width: breakpoint(tablet)) {
+        font-size: heading(h2) + 0.5rem;
+        text-align: start;
+        padding-right: 30px;
+      }
+
+      @media (min-width: breakpoint(desktop)) {
+        font-size: heading(h1);
+        width: 50%;
+      }
+    }
+
+    .description {
       opacity: 0.8;
-      margin-bottom: 39px;
       line-height: 33px;
+      margin-bottom: 40px;
+      letter-spacing: 1.45px;
+
+      @media (max-width: breakpoint(mobile-s)) {
+        margin-bottom: 10px;
+      }
+
+      @media (min-width: breakpoint(tablet)) {
+        margin-bottom: 40px;
+      }
 
       @media (min-width: breakpoint(desktop)) {
         margin-bottom: 56px;
+        width: 50%;
       }
-    }
-
-    @media (min-width: breakpoint(tablet)) {
-      h2 {
-        font-size: map-get($heading-sizes, h2) + 0.5rem;
-      }
-      text-align: start;
-      padding-right: 10px;
-    }
-
-    @media (min-width: breakpoint(desktop)) {
-      h2 {
-        font-size: map-get($heading-sizes, h1);
-        margin-bottom: 24px;
-        margin-top: 50px;
-      }
-      margin-right: 500px;
     }
   }
 }
 
+// BACKGROUNDS
+// User must pass coffeepress, blackcup, or whitecup to the background prop of the
+// Hero component.
 #coffeepress {
   @include background(
     "../public/assets/home/mobile/image-hero-coffeepress.jpg"
@@ -61,6 +81,7 @@
 
 #blackcup {
   @include background("../public/assets/plan/mobile/image-hero-blackcup.jpg");
+
   @media (min-width: breakpoint(tablet)) {
     @include background("../public/assets/plan/tablet/image-hero-blackcup.jpg");
     padding: 50px 170px 104px 58px;
@@ -75,6 +96,14 @@
 }
 
 #whitecup {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .description {
+    font-size: 0.9375rem;
+  }
+
   @include background("../public/assets/about/mobile/image-hero-whitecup.jpg");
   @media (min-width: breakpoint(tablet)) {
     @include background(
