@@ -3,6 +3,12 @@
 
 // This is for the horizontal line that goes through the circles above the step numbers
 // Check the "circle" class below for more about the circles
+@media (max-width: breakpoint(mobile)) {
+  .line {
+    display: none;
+  }
+}
+
 @media (min-width: breakpoint(tablet)) {
   .line {
     position: relative;

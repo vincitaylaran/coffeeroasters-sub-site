@@ -1,0 +1,71 @@
+@import "functions";
+@import "mixins";
+
+#about {
+  // For hero section styles, go to Hero.module.scss
+
+  .ourCommitment {
+    @include flex(column) {
+      @media (min-width: breakpoint(tablet)) {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .image {
+      background: url("../public/assets/about/mobile/image-commitment.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      @media (max-width: breakpoint(mobile)) {
+        height: 400px;
+        margin-bottom: 48px;
+      }
+
+      @media (min-width: breakpoint(tablet)) {
+        background: url("../public/assets/about/tablet/image-commitment.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 281px;
+        margin-right: 69px;
+      }
+
+      @media (min-width: breakpoint(desktop)) {
+        background: url("../public/assets/about/desktop/image-commitment.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 445px;
+        margin-right: 125px;
+      }
+    }
+
+    .content {
+      text-align: center;
+
+      @media (min-width: breakpoint(tablet)) {
+        width: 339px;
+        text-align: start;
+      }
+
+      //   @media (min-width: breakpoint(desktop)) {
+      //     width: 540px;
+      //     height: 340px;
+      //   }
+
+      .title {
+        margin: 0;
+        margin-bottom: 30px;
+      }
+
+      .description {
+        margin: 0;
+      }
+    }
+  }
+
+  .unCompromisingQuality {
+  }
+
+  .ourHeadQuarters {
+  }
+}
