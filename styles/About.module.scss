@@ -1,10 +1,22 @@
 @import "functions";
 @import "mixins";
 
+@mixin quality-image($backgroundUrl) {
+  background: url($backgroundUrl);
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
 #about {
   // For hero section styles, go to Hero.module.scss
+  @include flex(column) {
+    align-items: center;
+  }
 
   .ourCommitment {
+    margin-bottom: 200px;
+
     @include flex(column) {
       @media (min-width: breakpoint(tablet)) {
         flex-direction: row;
@@ -47,11 +59,6 @@
         text-align: start;
       }
 
-      //   @media (min-width: breakpoint(desktop)) {
-      //     width: 540px;
-      //     height: 340px;
-      //   }
-
       .title {
         margin: 0;
         margin-bottom: 30px;
@@ -63,7 +70,90 @@
     }
   }
 
-  .unCompromisingQuality {
+  .uncompromisingQuality {
+    @include flex(column) {
+      align-items: center;
+      justify-content: center;
+      @media (min-width: breakpoint(desktop)) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+      }
+    }
+
+    background: color(outer-space);
+    text-align: center;
+    color: white;
+    padding-bottom: 61px;
+    height: 550px;
+    width: 327px;
+
+    @media (max-width: breakpoint(mobile-s)) {
+      height: 609px;
+    }
+
+    @media (min-width: breakpoint(tablet)) {
+      height: 588px;
+      width: 699px;
+    }
+
+    @media (min-width: breakpoint(desktop)) {
+      text-align: start;
+      width: 1280px;
+    }
+
+    .imageContainer {
+      width: 279px;
+      height: 156px;
+
+      @media (min-width: breakpoint(tablet)) {
+        width: 573px;
+        height: 320px;
+      }
+
+      @media (min-width: breakpoint(desktop)) {
+        width: 445px;
+        height: 474px;
+      }
+
+      .image {
+        position: relative;
+        bottom: 64px;
+        @include quality-image(
+          "../public/assets/about/mobile/image-quality.jpg"
+        );
+
+        @media (min-width: breakpoint(tablet)) {
+          @include quality-image(
+            "../public/assets/about/tablet/image-quality.jpg"
+          );
+        }
+
+        @media (min-width: breakpoint(desktop)) {
+          @include quality-image(
+            "../public/assets/about/desktop/image-quality.jpg"
+          );
+        }
+      }
+    }
+
+    .content {
+      color: color(light-cream);
+
+      @media (min-width: breakpoint(desktop)) {
+        width: 540px;
+      }
+      .title {
+        margin: 0 0 24px;
+
+        @media (min-width: breakpoint(desktop)) {
+          font-size: 2.5rem;
+        }
+      }
+
+      .description {
+        opacity: 0.8;
+      }
+    }
   }
 
   .ourHeadQuarters {

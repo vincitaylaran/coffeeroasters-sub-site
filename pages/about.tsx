@@ -16,11 +16,6 @@ const about = () => {
       </section>
 
       <section className={aboutStyles.ourCommitment}>
-        {/* <Image
-          src="/assets/about/mobile/image-commitment.jpg"
-          width={327}
-          height={400}
-        /> */}
         <div className={aboutStyles.image} />
 
         <div className={aboutStyles.content}>
@@ -37,6 +32,25 @@ const about = () => {
             community initiatives, and invest in coffee plant science. Curating
             only the finest blends, we roast each lot to highlight tasting
             profiles distinctive to their native growing region.
+          </p>
+        </div>
+      </section>
+
+      <section className={aboutStyles.uncompromisingQuality}>
+        <div className={aboutStyles.imageContainer}>
+          <div className={aboutStyles.image} />
+        </div>
+
+        <div className={aboutStyles.content}>
+          <h3 className={aboutStyles.title}>Uncompromising quality</h3>
+
+          <p className={aboutStyles.description}>
+            Although we work with growers who pay close attention to all stages
+            of harvest and processing, we employ, on our end, a rigorous quality
+            control program to avoid over-roasting or baking the coffee dry.
+            Every bag of coffee is tagged with a roast date and batch number.
+            Our goal is to roast consistent, user-friendly coffee, so that
+            brewing is easy and enjoyable.
           </p>
         </div>
       </section>
