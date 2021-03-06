@@ -17,6 +17,9 @@
   }
 }
 
+// TODO: Change background-size to contain. For "contain" to display the'
+// image properly, must be nested within a container with the appropriate width
+// and height.
 @mixin background($path) {
   background: url($path);
   background-size: cover;

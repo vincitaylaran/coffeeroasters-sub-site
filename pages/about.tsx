@@ -1,10 +1,48 @@
-import Image from "next/image"
-
 import aboutStyles from "../styles/About.module.scss"
 
 import Hero from "../components/Hero"
+import { AustraliaIcon, CanadaIcon, UkIcon } from "../components/CountryIcons"
 
 const about = () => {
+  const locations = [
+    {
+      icon: <UkIcon />,
+      location: "United Kingdom",
+      description: (
+        <>
+          <div>68 Ashfordby Rd</div>
+          <div>Alcaston</div>
+          <div>SY6 1YA</div>
+          <div>+44 1241 918425</div>
+        </>
+      ),
+    },
+    {
+      icon: <CanadaIcon />,
+      location: "Canada",
+      description: (
+        <>
+          <div>1529 Eglington Avenue</div>
+          <div>Toronto</div>
+          <div>Ontario M4P 1A6</div>
+          <div>+1 416 485 2997</div>
+        </>
+      ),
+    },
+    {
+      icon: <AustraliaIcon />,
+      location: "Australia",
+      description: (
+        <>
+          <div>36 Swanston Street</div>
+          <div>Kewell</div>
+          <div>Victoria</div>
+          <div>+61 4 9928 3629</div>
+        </>
+      ),
+    },
+  ]
+
   return (
     <div id={aboutStyles.about}>
       <section className={aboutStyles.hero}>
@@ -52,6 +90,26 @@ const about = () => {
             Our goal is to roast consistent, user-friendly coffee, so that
             brewing is easy and enjoyable.
           </p>
+        </div>
+      </section>
+
+      <section className={aboutStyles.ourHeadquarters}>
+        <h4 className={aboutStyles.title}>Our headquarters</h4>
+
+        <div className={aboutStyles.locations}>
+          {locations.map((l) => {
+            return (
+              <div className={aboutStyles.locations}>
+                <div className={aboutStyles.location}>
+                  <div className={aboutStyles.imageContainer}>{l.icon}</div>
+
+                  <h4 className={aboutStyles.country}>{l.location}</h4>
+
+                  <p className={aboutStyles.description}>{l.description}</p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
     </div>

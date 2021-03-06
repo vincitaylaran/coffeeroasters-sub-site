@@ -156,6 +156,51 @@
     }
   }
 
-  .ourHeadQuarters {
+  .ourHeadquarters {
+    text-align: center;
+
+    @media (min-width: breakpoint(tablet)) {
+      text-align: start;
+      width: 688px;
+    }
+
+    @media (min-width: breakpoint(desktop)) {
+      width: 1045px;
+    }
+
+    .title {
+      color: color(grey);
+      margin-bottom: 72px;
+    }
+
+    .locations {
+      @include grid {
+        gap: 80px;
+
+        @media (min-width: breakpoint(tablet)) {
+          grid-auto-flow: column;
+          gap: 10px;
+        }
+
+        @media (min-width: breakpoint(tablet)) {
+          gap: 95px;
+        }
+      }
+
+      .location {
+        .imageContainer {
+        }
+
+        .country {
+          margin-bottom: 24px;
+          @media (min-width: breakpoint(desktop)) {
+            font-size: 2rem;
+          }
+        }
+
+        .description {
+        }
+      }
+    }
   }
 }
