@@ -12,6 +12,14 @@
 
   .icon {
     margin-bottom: 67px;
+
+    @media (min-width: breakpoint(tablet)) and (max-width: breakpoint(laptop) - 1) {
+      margin-bottom: 0;
+    }
+
+    @include flex {
+      align-items: center;
+    }
   }
 
   h4 {
