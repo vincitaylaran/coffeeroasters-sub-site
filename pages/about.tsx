@@ -10,10 +10,10 @@ const about = () => {
       location: "United Kingdom",
       description: (
         <>
-          <div>68 Ashfordby Rd</div>
-          <div>Alcaston</div>
-          <div>SY6 1YA</div>
-          <div>+44 1241 918425</div>
+          <span>68 Ashfordby Rd</span>
+          <span>Alcaston</span>
+          <span>SY6 1YA</span>
+          <span>+44 1241 918425</span>
         </>
       ),
     },
@@ -22,10 +22,10 @@ const about = () => {
       location: "Canada",
       description: (
         <>
-          <div>1529 Eglington Avenue</div>
-          <div>Toronto</div>
-          <div>Ontario M4P 1A6</div>
-          <div>+1 416 485 2997</div>
+          <span>1529 Eglington Avenue</span>
+          <span>Toronto</span>
+          <span>Ontario M4P 1A6</span>
+          <span>+1 416 485 2997</span>
         </>
       ),
     },
@@ -34,10 +34,10 @@ const about = () => {
       location: "Australia",
       description: (
         <>
-          <div>36 Swanston Street</div>
-          <div>Kewell</div>
-          <div>Victoria</div>
-          <div>+61 4 9928 3629</div>
+          <span>36 Swanston Street</span>
+          <span>Kewell</span>
+          <span>Victoria</span>
+          <span>+61 4 9928 3629</span>
         </>
       ),
     },
@@ -99,7 +99,7 @@ const about = () => {
         <div className={aboutStyles.locations}>
           {locations.map((l) => {
             return (
-              <div className={aboutStyles.locations}>
+              <div key={l.location} className={aboutStyles.locations}>
                 <div className={aboutStyles.location}>
                   <div className={aboutStyles.imageContainer}>{l.icon}</div>
 
