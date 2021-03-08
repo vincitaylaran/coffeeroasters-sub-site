@@ -3,38 +3,69 @@
 @import "functions";
 
 .footer {
-  @include flex(column) {
-    justify-content: space-evenly;
-    align-items: center;
-  }
+  @include responsive-padding;
 
-  // TODO: Add response padding mixin.
+  .content {
+    @include flex(column) {
+      justify-content: space-evenly;
+      align-items: center;
 
-  text-align: center;
-  background: #2c343e;
-  width: 100%;
-  height: 346px;
-
-  @media (min-width: breakpoint(tablet)) and (max-width: breakpoint(laptop) - 1) {
-    height: 270px;
-    .logo {
-      margin-bottom: -32px;
+      @media (min-width: breakpoint(laptop)) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
-  }
-  @media (min-width: breakpoint(laptop)) {
-    height: 120px;
-  }
 
-  @media (min-width: breakpoint(laptop)) {
-    @include flex(row);
-  }
+    text-align: center;
+    background: #2c343e;
+    width: 100%;
+    height: 346px;
 
-  .socialMedia {
-    @include flex {
-      justify-content: center;
+    @media (min-width: breakpoint(tablet)) and (max-width: breakpoint(laptop) - 1) {
+      height: 270px;
+      .logo {
+        margin-bottom: -32px;
+      }
+    }
 
-      div:nth-child(2) {
-        margin: 0 24px;
+    @media (min-width: breakpoint(laptop)) {
+      padding: 0 85px;
+      height: 120px;
+    }
+
+    .logoLinksContainer {
+      @include flex(column) {
+        align-items: center;
+
+        @media (min-width: breakpoint(laptop)) {
+          flex-direction: row;
+        }
+      }
+
+      .logo {
+        margin-bottom: 48.44px;
+        @media (min-width: breakpoint(tablet)) {
+          margin-bottom: 32px;
+        }
+
+        @media (min-width: breakpoint(laptop)) {
+          margin-bottom: 0;
+          margin-right: 30px;
+        }
+
+        @media (min-width: breakpoint(desktop)) {
+          margin-right: 102.9px;
+        }
+      }
+    }
+
+    .socialMedia {
+      @include flex {
+        justify-content: center;
+
+        div:nth-child(2) {
+          margin: 0 24px;
+        }
       }
     }
   }
