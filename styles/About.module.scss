@@ -14,7 +14,7 @@
     align-items: center;
   }
 
-  .ourCommitment {
+  section.ourCommitment {
     margin-bottom: 200px;
 
     @include flex(column) {
@@ -70,7 +70,7 @@
     }
   }
 
-  .uncompromisingQuality {
+  section.uncompromisingQuality {
     @include flex(column) {
       align-items: center;
       justify-content: center;
@@ -156,7 +156,7 @@
     }
   }
 
-  .ourHeadquarters {
+  section.ourHeadquarters {
     text-align: center;
 
     @media (min-width: breakpoint(tablet)) {
