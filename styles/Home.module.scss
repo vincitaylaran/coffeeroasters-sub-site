@@ -57,10 +57,13 @@
   section.whyChooseUs {
     background: color(outer-space);
     height: 902px;
-    margin: 0;
     color: color(light-cream);
     text-align: center;
     padding: 64px 24px 0;
+
+    @media (max-width: breakpoint(mobile-s)) {
+      margin-bottom: 210px;
+    }
 
     @media (min-width: breakpoint(tablet)) {
       height: 573px;
