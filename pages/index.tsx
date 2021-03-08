@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
 
-import indexStyles from "../styles/Index.module.scss"
+import indexStyles from "../styles/Home.module.scss"
 
 import CollectionImage from "../components/CollectionImage"
 import Card from "../components/Card"
