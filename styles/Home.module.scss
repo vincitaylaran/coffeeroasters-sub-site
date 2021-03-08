@@ -35,11 +35,17 @@
       }
     }
 
-    // TODO: refactor to use grid mixin
     .container {
-      // background: blue;
+      @include grid(48px) {
+        @media (min-width: breakpoint(tablet)) {
+          gap: 32px;
+        }
 
-      @include flex($direction: column);
+        @media (min-width: breakpoint(desktop)) {
+          gap: 30px;
+          grid-auto-flow: column;
+        }
+      }
       z-index: 1;
       width: 100%;
 
