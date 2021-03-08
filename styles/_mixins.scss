@@ -24,9 +24,6 @@
   background: url($path);
   background-size: cover;
   background-repeat: no-repeat;
-  @media (max-width: breakpoint(mobile)) {
-    height: 400px;
-  }
 }
 
 @mixin flex($direction: row) {

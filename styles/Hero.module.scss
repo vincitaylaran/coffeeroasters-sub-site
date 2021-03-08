@@ -61,9 +61,12 @@
 // User must pass coffeepress, blackcup, or whitecup to the background prop of the
 // Hero component.
 #coffeepress {
+  height: 500px;
+
   @include background(
     "../public/assets/home/mobile/image-hero-coffeepress.jpg"
   );
+
   @media (min-width: breakpoint(tablet)) {
     @include background(
       "../public/assets/home/tablet/image-hero-coffeepress.jpg"
@@ -81,6 +84,7 @@
 
 #blackcup {
   @include background("../public/assets/plan/mobile/image-hero-blackcup.jpg");
+  height: 400px;
 
   @media (min-width: breakpoint(tablet)) {
     @include background("../public/assets/plan/tablet/image-hero-blackcup.jpg");
@@ -96,6 +100,8 @@
 }
 
 #whitecup {
+  height: 400px;
+
   .title {
     font-size: 1.75rem;
   }
