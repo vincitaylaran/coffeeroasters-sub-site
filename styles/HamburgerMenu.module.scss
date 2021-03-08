@@ -1,0 +1,31 @@
+@import "functions";
+@import "mixins";
+
+.menu {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(254, 252, 247, 0.504981) 0%,
+    #fefcf7 75.94%
+  );
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  padding-top: 40px;
+
+  ul {
+    padding: 0;
+    li {
+      list-style-type: none;
+      margin-bottom: 32px;
+      font-family: Fraunces, sans-serif;
+      font-size: 1.5rem;
+      font-weight: font-weight(extra-bold);
+    }
+  }
+
+  &__hidden {
+    display: none;
+  }
+}
