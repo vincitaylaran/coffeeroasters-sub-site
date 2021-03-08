@@ -5,6 +5,7 @@ import Logo from "./Logo"
 
 import Image from "next/image"
 import Link from "next/link"
+import HamburgerMenu from "./HamburgerMenu"
 
 interface ILinks {
   hideAtMobile?: boolean
@@ -34,19 +35,19 @@ export const Links = ({ style, hideAtMobile = false }: ILinks) => {
 }
 
 const Nav = () => {
-  const [hamburgerMenuIcon, setHamburgerMenuIcon] = useState({
+  const [hamburgerMenu, setHamburgerMenu] = useState({
     isClosed: true,
     path: "/assets/shared/mobile/icon-hamburger.svg",
   })
 
   const onHamburgerMenu = () => {
-    if (hamburgerMenuIcon.isClosed) {
-      setHamburgerMenuIcon({
+    if (hamburgerMenu.isClosed) {
+      setHamburgerMenu({
         isClosed: false,
         path: "/assets/shared/mobile/icon-close.svg",
       })
     } else {
-      setHamburgerMenuIcon({
+      setHamburgerMenu({
         isClosed: true,
         path: "/assets/shared/mobile/icon-hamburger.svg",
       })
@@ -56,26 +57,30 @@ const Nav = () => {
   // In order for the Image component to function properly, the assets must be in the public directory.
   // The file path for an Image component must be relative to the public directory. Check NextJS docs.
   return (
-    <nav className={navStyles.nav}>
-      <div className={navStyles.logo}>
-        <Logo />
-      </div>
+    <>
+      <nav className={navStyles.nav}>
+        <div className={navStyles.logo}>
+          <Logo />
+        </div>
 
-      <Links
-        style={{ width: "283px", gap: "32px", gridAutoFlow: "column" }}
-        hideAtMobile={true}
-      />
-
-      <div className={navStyles.hamburger}>
-        <Image
-          onClick={onHamburgerMenu}
-          src={hamburgerMenuIcon.path}
-          alt="Close hamburger menu"
-          width="16"
-          height="15"
+        <Links
+          style={{ width: "283px", gap: "32px", gridAutoFlow: "column" }}
+          hideAtMobile={true}
         />
-      </div>
-    </nav>
+
+        <div className={navStyles.hamburgerIcon}>
+          <Image
+            onClick={onHamburgerMenu}
+            src={hamburgerMenu.path}
+            alt="Close hamburger menu"
+            width="16"
+            height="15"
+          />
+        </div>
+      </nav>
+
+      <HamburgerMenu isClosed={hamburgerMenu.isClosed} />
+    </>
   )
 }
 
