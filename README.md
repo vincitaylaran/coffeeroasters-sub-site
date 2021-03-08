@@ -1,3 +1,5 @@
+Design by: Frontend Mentor
+
 Live demo: https://coffeeroasters-sub-site.vercel.app/
 
 Portfolio: https://www.vincitaylaran.com/
