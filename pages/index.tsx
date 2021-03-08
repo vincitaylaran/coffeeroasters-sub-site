@@ -1,7 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
 
-import homeStyles from "../styles/Home.module.scss"
+import indexStyles from "../styles/index.module.scss"
 
 import CollectionImage from "../components/CollectionImage"
 import Card from "../components/Card"
@@ -10,7 +10,7 @@ import Hero from "../components/Hero"
 
 export default function Home() {
   return (
-    <div id={homeStyles.home}>
+    <div id={indexStyles.home}>
       <Head>
         <title>Coffee Roasters</title>
         <link rel="icon" href="/favicon.ico" />
@@ -22,7 +22,7 @@ export default function Home() {
         />
       </Head>
 
-      <section className={homeStyles.hero}>
+      <section className={indexStyles.hero}>
         <Hero
           background="coffeepress"
           title="Great coffee made simple."
@@ -35,11 +35,11 @@ coffees from our best roasters delivered directly to your door, at your schedule
         </Hero>
       </section>
 
-      <section className={homeStyles.ourCollection}>
-        <div className={homeStyles.sectionHeading}>
-          <h2 className={homeStyles.sectionTitle}>our collection</h2>
+      <section className={indexStyles.ourCollection}>
+        <div className={indexStyles.sectionHeading}>
+          <h2 className={indexStyles.sectionTitle}>our collection</h2>
         </div>
-        <div className={homeStyles.container}>
+        <div className={indexStyles.container}>
           <CollectionImage
             src="../assets/home/desktop/image-gran-espresso.png"
             title="Gran Espresso"
@@ -64,14 +64,14 @@ coffees from our best roasters delivered directly to your door, at your schedule
       </section>
 
       {/* TODO: This section should not ignore padding. */}
-      <section className={homeStyles.whyChooseUs}>
-        <h4 className={homeStyles.sectionTitle}>Why choose us?</h4>
-        <p className={homeStyles.description}>
+      <section className={indexStyles.whyChooseUs}>
+        <h4 className={indexStyles.sectionTitle}>Why choose us?</h4>
+        <p className={indexStyles.description}>
           A large part of our role is choosing which particular coffees will be
           featured in our range. This means working closely with the best coffee
           growers to give you a more impactful experience on every level.
         </p>
-        <div className={homeStyles.cards}>
+        <div className={indexStyles.cards}>
           <Card
             src="/assets/home/desktop/icon-coffee-bean.svg"
             title="Best quality"
@@ -91,8 +91,8 @@ coffees from our best roasters delivered directly to your door, at your schedule
         </div>
       </section>
 
-      <section className={homeStyles.howItWorks}>
-        <h3 className={homeStyles.sectionTitle}>How it works</h3>
+      <section className={indexStyles.howItWorks}>
+        <h3 className={indexStyles.sectionTitle}>How it works</h3>
 
         <HowItWorks />
 
