@@ -79,7 +79,10 @@ const Nav = () => {
         </div>
       </nav>
 
-      <HamburgerMenu isClosed={hamburgerMenu.isClosed} />
+      <HamburgerMenu
+        isClosed={hamburgerMenu.isClosed}
+        onLink={onHamburgerMenu}
+      />
     </>
   )
 }
