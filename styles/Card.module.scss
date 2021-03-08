@@ -9,6 +9,19 @@
   padding: 72px 33.5px 24px;
   justify-content: center;
   align-items: center;
+  width: 279px;
+
+  @media (max-width: breakpoint(mobile-s)) {
+    width: 235px;
+  }
+
+  @media (min-width: breakpoint(tablet)) {
+    width: 572px;
+  }
+
+  @media (min-width: breakpoint(desktop)) {
+    width: 350px;
+  }
 
   .icon {
     margin-bottom: 67px;
@@ -33,11 +46,5 @@
     .icon {
       margin-right: 55px;
     }
-  }
-
-  @media (min-width: breakpoint(desktop)) {
-    // padding-left: 72px;
-    // padding-right: 72px;
-    // padding-bottom: 0;
   }
 }

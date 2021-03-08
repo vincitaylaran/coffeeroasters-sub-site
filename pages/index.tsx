@@ -65,12 +65,16 @@ coffees from our best roasters delivered directly to your door, at your schedule
 
       {/* TODO: This section should not ignore padding. */}
       <section className={indexStyles.whyChooseUs}>
-        <h4 className={indexStyles.sectionTitle}>Why choose us?</h4>
-        <p className={indexStyles.description}>
-          A large part of our role is choosing which particular coffees will be
-          featured in our range. This means working closely with the best coffee
-          growers to give you a more impactful experience on every level.
-        </p>
+        <div className={indexStyles.content}>
+          <h4 className={indexStyles.sectionTitle}>Why choose us?</h4>
+          <p className={indexStyles.description}>
+            A large part of our role is choosing which particular coffees will
+            be featured in our range. This means working closely with the best
+            coffee growers to give you a more impactful experience on every
+            level.
+          </p>
+        </div>
+
         <div className={indexStyles.cards}>
           <Card
             src="/assets/home/desktop/icon-coffee-bean.svg"

@@ -11,8 +11,9 @@
   }
 
   section.ourCollection {
-    @include flex($direction: column);
-    align-items: center;
+    @include flex($direction: column) {
+      align-items: center;
+    }
 
     .sectionHeading {
       .sectionTitle {
@@ -65,11 +66,10 @@
   }
 
   section.whyChooseUs {
-    background: color(outer-space);
     height: 902px;
     color: color(light-cream);
     text-align: center;
-    padding: 64px 24px 0;
+    width: 100%;
 
     @media (max-width: breakpoint(mobile-s)) {
       margin-bottom: 210px;
@@ -80,36 +80,59 @@
     }
 
     @media (min-width: breakpoint(desktop)) {
-      width: 1220px;
       @include section-left-right-padding(breakpoint(desktop));
+      // @include responsive-padding;
     }
 
-    .sectionTitle {
-      font-size: 1.75rem;
-      margin: 0 0 30px;
+    .content {
+      height: inherit;
+      padding: 64px 24px 0;
+      background: color(outer-space);
 
-      @media (min-width: breakpoint(desktop)) {
-        font-size: 3rem;
+      @media (min-width: breakpoint(tablet)) {
+        padding: 56px 74px 0;
       }
-    }
 
-    .description {
-      opacity: 0.8;
-      line-height: 25px;
-      letter-spacing: 0.6px;
-      margin-bottom: 64px;
+      .sectionTitle {
+        font-size: 1.75rem;
+        margin: 0 0 30px;
 
-      @media (min-width: breakpoint(desktop)) {
-        margin-bottom: 66px;
-        padding-left: 275px;
-        padding-right: 275px;
+        @media (min-width: breakpoint(desktop)) {
+          font-size: 3rem;
+        }
+      }
+
+      .description {
+        opacity: 0.8;
+        line-height: 25px;
+        letter-spacing: 0.6px;
+        margin-bottom: 64px;
+
+        @media (min-width: breakpoint(desktop)) {
+          margin-bottom: 66px;
+          padding-left: 275px;
+          padding-right: 275px;
+        }
       }
     }
 
     .cards {
+      position: relative;
+      bottom: 63%;
+
+      @media (max-width: breakpoint(mobile-s)) {
+        bottom: 55%;
+      }
+
+      @media (min-width: breakpoint(tablet)) {
+        bottom: 55%;
+      }
+
       @include grid($gap: 24px) {
+        justify-items: center;
         @media (min-width: breakpoint(laptop)) {
           grid-auto-flow: column;
+          gap: 0;
         }
       }
 
