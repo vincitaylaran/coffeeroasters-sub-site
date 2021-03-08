@@ -83,7 +83,7 @@
 // Components such as <HowItWorks /> in the plan page ignore the left and right padding of the body.
 @mixin ignore-body-padding {
   @media (max-width: breakpoint(tablet) - 1) {
-    margin: 0 -30px;
+    margin: 0 -30px 0 -25px;
   }
   @media (min-width: breakpoint(tablet)) and (max-width: breakpoint(laptop) - 1) {
     margin: 0 -40px;
