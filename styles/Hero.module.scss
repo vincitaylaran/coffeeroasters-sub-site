@@ -17,6 +17,7 @@
     .title {
       margin: 0;
       font-size: heading(h2);
+      font-weight: font-weight(extra-bold);
 
       @media (max-width: breakpoint(mobile-s)) {
         font-size: heading(h3);
@@ -30,7 +31,7 @@
 
       @media (min-width: breakpoint(desktop)) {
         font-size: heading(h1);
-        width: 50%;
+        width: 55%;
       }
     }
 
