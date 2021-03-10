@@ -82,6 +82,7 @@
 
     @media (min-width: breakpoint(desktop)) {
       @include section-left-right-padding(breakpoint(desktop));
+      margin-bottom: 250px;
       // @include responsive-padding;
     }
 

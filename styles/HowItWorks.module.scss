@@ -52,6 +52,10 @@
   }
 
   .cell {
+    @media (min-width: breakpoint(desktop)) {
+      // width: 285px;
+    }
+
     // The circle that sits above each step number
     // Only shows at tablet width or greater
     @media (min-width: breakpoint(tablet)) {
