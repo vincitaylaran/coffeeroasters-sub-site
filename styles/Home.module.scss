@@ -94,6 +94,10 @@
         padding: 56px 74px 0;
       }
 
+      @media (min-width: breakpoint(tablet)) {
+        padding: 100px 74px 0;
+      }
+
       .sectionTitle {
         font-size: 1.75rem;
         margin: 0 0 30px;
@@ -110,7 +114,6 @@
         margin-bottom: 64px;
 
         @media (min-width: breakpoint(desktop)) {
-          margin-bottom: 66px;
           padding-left: 275px;
           padding-right: 275px;
         }
@@ -127,6 +130,10 @@
 
       @media (min-width: breakpoint(tablet)) {
         bottom: 55%;
+      }
+
+      @media (min-width: breakpoint(desktop)) {
+        bottom: 37%;
       }
 
       @include grid($gap: 24px) {
